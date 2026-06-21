@@ -1,0 +1,80 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Coval
+providerId: coval-ai
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- AI
+- Agents
+- Voice AI
+- Simulation
+- Evaluation
+- Testing
+- Plans
+description: >-
+  Coval pricing is sales-led. The platform is positioned for developers, QA
+  teams, and enterprise operations teams testing and monitoring voice and chat
+  agents, and access is gated behind a request-access / contact-sales flow
+  rather than a public self-serve price list. Public tier names, per-simulation
+  rates, and quota allotments are not documented at the time of writing, so the
+  plan entries below are unreconciled placeholders pending confirmation with
+  Coval.
+notes: >-
+  No public, itemized pricing page was found. Pricing is obtained by requesting
+  access or contacting Coval sales. Reconcile tier names, included simulation /
+  evaluation volume, and overage rates directly with the provider.
+sources:
+- https://www.coval.dev
+- https://www.coval.ai/request-access
+- https://docs.coval.dev/getting-started/welcome
+plans:
+- id: coval-request-access
+  name: Request Access
+  type: contact
+  description: >-
+    Entry point for new teams. Access to the simulation and evaluation
+    platform is granted via a request-access flow; specific included volume and
+    pricing are provided by Coval during onboarding.
+  entries:
+  - label: Platform Access
+    name: platform_access
+    type: contact
+    metric: contract
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Simulation
+  - name: Evaluation
+  - name: Observability
+- id: coval-enterprise
+  name: Enterprise
+  type: enterprise
+  description: >-
+    Enterprise-grade testing, evaluation, and observability for voice and chat
+    agents with volume commitments, security review, and dedicated support.
+    Negotiated terms via Coval sales.
+  entries:
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Custom Volume Pricing
+  - name: Production Monitoring
+  - name: Dedicated Support
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

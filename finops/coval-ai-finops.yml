@@ -1,0 +1,92 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Coval
+providerId: coval-ai
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- AI
+- Agents
+- Voice AI
+- Simulation
+- Evaluation
+- Testing
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Coval spend. Coval is a sales-led simulation and evaluation
+  platform for AI voice and chat agents, so spend is governed by a negotiated
+  contract rather than a public usage meter. The natural cost drivers are the
+  number of simulations run, the volume of conversations and transcripts
+  evaluated, and the number of metric evaluations executed. Concrete unit
+  rates are not publicly documented and must be reconciled with Coval.
+notes: >-
+  Pricing is not published; meters below describe likely cost drivers for
+  allocation and forecasting and are unreconciled. Confirm billable units
+  (per simulation, per evaluation, per seat, or flat platform fee) with Coval.
+sources:
+- https://www.coval.dev
+- https://docs.coval.dev/getting-started/welcome
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Coval
+serviceCategory: AI and Machine Learning
+billingModel:
+  pricingCategory: Commitment-Based
+  billingFrequency: Contract
+  billingCurrency: USD
+  chargeCategories:
+  - Purchase
+  - Usage
+focusColumns:
+  ServiceName: Coval
+  ServiceCategory: AI and Machine Learning
+  ProviderName: Coval
+  PublisherName: Coval
+  InvoiceIssuerName: Coval
+  BillingCurrency: USD
+  ChargeCategory: Purchase
+  PricingCategory: Commitment-Based
+meters:
+- name: simulations_run
+  description: Number of agent simulations launched across runs. A likely primary cost driver; rate not publicly documented.
+  unit: simulations
+  aggregation: sum
+  dimensions:
+  - organization
+  - agent
+  - run
+- name: conversations_evaluated
+  description: Production conversations / transcripts submitted for evaluation and observability.
+  unit: conversations
+  aggregation: sum
+  dimensions:
+  - organization
+  - agent
+- name: metric_evaluations
+  description: Metric (scorer) evaluations executed against simulations and conversations.
+  unit: evaluations
+  aggregation: sum
+  dimensions:
+  - organization
+  - metric
+principles:
+- name: Visibility
+  description: Track simulations run and conversations evaluated per agent and team via the runs, simulations, and conversations APIs.
+- name: Allocation
+  description: Tag agents, test sets, and runs to map evaluation spend to internal teams and workloads.
+- name: Optimization
+  description: Right-size test sets and persona coverage; reuse run templates and schedule runs to avoid redundant simulation volume.
+- name: Accountability
+  description: Assign owners per agent / project and review evaluation volume against the negotiated contract.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

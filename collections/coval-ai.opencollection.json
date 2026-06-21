@@ -1,0 +1,1107 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Coval API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "apikey": {
+        "key": "X-API-Key",
+        "value": "{{apiKey}}",
+        "in": "header"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Agents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List agents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/agents"
+          },
+          "docs": "List agents"
+        },
+        {
+          "info": {
+            "name": "Connect an agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.coval.dev/v1/agents",
+            "body": {
+              "type": "json",
+              "data": "{\"display_name\": \"<string>\", \"model_type\": \"<string>\"}"
+            }
+          },
+          "docs": "Connect and configure an AI agent for testing."
+        },
+        {
+          "info": {
+            "name": "Get agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/agents/{agent_id}"
+          },
+          "docs": "Get agent"
+        },
+        {
+          "info": {
+            "name": "Update agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.coval.dev/v1/agents/{agent_id}",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update agent"
+        },
+        {
+          "info": {
+            "name": "Delete agent",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.coval.dev/v1/agents/{agent_id}"
+          },
+          "docs": "Delete agent"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Mutations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List mutations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/agents/{agent_id}/mutations"
+          },
+          "docs": "List mutations"
+        },
+        {
+          "info": {
+            "name": "Create mutation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.coval.dev/v1/agents/{agent_id}/mutations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create mutation"
+        },
+        {
+          "info": {
+            "name": "Get mutation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/agents/{agent_id}/mutations/{mutation_id}"
+          },
+          "docs": "Get mutation"
+        },
+        {
+          "info": {
+            "name": "Update mutation",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.coval.dev/v1/agents/{agent_id}/mutations/{mutation_id}",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update mutation"
+        },
+        {
+          "info": {
+            "name": "Delete mutation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.coval.dev/v1/agents/{agent_id}/mutations/{mutation_id}"
+          },
+          "docs": "Delete mutation"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Test Sets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List test sets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/test-sets"
+          },
+          "docs": "List test sets"
+        },
+        {
+          "info": {
+            "name": "Create test set",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.coval.dev/v1/test-sets",
+            "body": {
+              "type": "json",
+              "data": "{\"display_name\": \"<string>\"}"
+            }
+          },
+          "docs": "Create test set"
+        },
+        {
+          "info": {
+            "name": "Get test set",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/test-sets/{test_set_id}"
+          },
+          "docs": "Get test set"
+        },
+        {
+          "info": {
+            "name": "Update test set",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.coval.dev/v1/test-sets/{test_set_id}",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update test set"
+        },
+        {
+          "info": {
+            "name": "Delete test set",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.coval.dev/v1/test-sets/{test_set_id}"
+          },
+          "docs": "Delete test set"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Test Cases",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List test cases",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/test-cases"
+          },
+          "docs": "List test cases"
+        },
+        {
+          "info": {
+            "name": "Create test case",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.coval.dev/v1/test-cases",
+            "body": {
+              "type": "json",
+              "data": "{\"input_str\": \"<string>\", \"test_set_id\": \"<string>\"}"
+            }
+          },
+          "docs": "Create test case"
+        },
+        {
+          "info": {
+            "name": "Get test case",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/test-cases/{test_case_id}"
+          },
+          "docs": "Get test case"
+        },
+        {
+          "info": {
+            "name": "Update test case",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.coval.dev/v1/test-cases/{test_case_id}",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update test case"
+        },
+        {
+          "info": {
+            "name": "Delete test case",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.coval.dev/v1/test-cases/{test_case_id}"
+          },
+          "docs": "Delete test case"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Personas",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List personas",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/personas"
+          },
+          "docs": "List personas"
+        },
+        {
+          "info": {
+            "name": "Create persona",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.coval.dev/v1/personas",
+            "body": {
+              "type": "json",
+              "data": "{\"name\": \"<string>\", \"voice_name\": \"<string>\", \"language_code\": \"<string>\"}"
+            }
+          },
+          "docs": "Create persona"
+        },
+        {
+          "info": {
+            "name": "List phone number mappings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/personas/phone-numbers"
+          },
+          "docs": "List phone number mappings"
+        },
+        {
+          "info": {
+            "name": "List available voices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/personas/voices"
+          },
+          "docs": "List available voices"
+        },
+        {
+          "info": {
+            "name": "Get persona",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/personas/{persona_id}"
+          },
+          "docs": "Get persona"
+        },
+        {
+          "info": {
+            "name": "Update persona",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.coval.dev/v1/personas/{persona_id}",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update persona"
+        },
+        {
+          "info": {
+            "name": "Delete persona",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.coval.dev/v1/personas/{persona_id}"
+          },
+          "docs": "Delete persona"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Metrics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/metrics"
+          },
+          "docs": "List metrics"
+        },
+        {
+          "info": {
+            "name": "Create metric",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.coval.dev/v1/metrics",
+            "body": {
+              "type": "json",
+              "data": "{\"metric_name\": \"<string>\", \"description\": \"<string>\", \"metric_type\": \"<string>\"}"
+            }
+          },
+          "docs": "Create metric"
+        },
+        {
+          "info": {
+            "name": "Get metric",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/metrics/{metric_id}"
+          },
+          "docs": "Get metric"
+        },
+        {
+          "info": {
+            "name": "Update metric",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.coval.dev/v1/metrics/{metric_id}",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update metric"
+        },
+        {
+          "info": {
+            "name": "Delete metric",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.coval.dev/v1/metrics/{metric_id}"
+          },
+          "docs": "Delete metric"
+        },
+        {
+          "info": {
+            "name": "List metric thresholds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/metrics/{metric_id}/thresholds"
+          },
+          "docs": "List metric thresholds"
+        },
+        {
+          "info": {
+            "name": "Create metric threshold",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.coval.dev/v1/metrics/{metric_id}/thresholds",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create metric threshold"
+        },
+        {
+          "info": {
+            "name": "Get metric threshold",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/metrics/{metric_id}/threshold"
+          },
+          "docs": "Get metric threshold"
+        },
+        {
+          "info": {
+            "name": "Update metric threshold",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.coval.dev/v1/metrics/{metric_id}/threshold",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update metric threshold"
+        },
+        {
+          "info": {
+            "name": "Delete metric threshold",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.coval.dev/v1/metrics/{metric_id}/thresholds/{threshold_id}"
+          },
+          "docs": "Delete metric threshold"
+        },
+        {
+          "info": {
+            "name": "List metric baselines",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/metrics/{metric_id}/baselines"
+          },
+          "docs": "List metric baselines"
+        },
+        {
+          "info": {
+            "name": "Create metric baseline",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.coval.dev/v1/metrics/{metric_id}/baselines",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create metric baseline"
+        },
+        {
+          "info": {
+            "name": "Get metric baseline",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/metrics/{metric_id}/baselines/{baseline_id}"
+          },
+          "docs": "Get metric baseline"
+        },
+        {
+          "info": {
+            "name": "Update metric baseline",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.coval.dev/v1/metrics/{metric_id}/baselines/{baseline_id}",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update metric baseline"
+        },
+        {
+          "info": {
+            "name": "Delete metric baseline",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.coval.dev/v1/metrics/{metric_id}/baselines/{baseline_id}"
+          },
+          "docs": "Delete metric baseline"
+        },
+        {
+          "info": {
+            "name": "List available metric models",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/models/metric"
+          },
+          "docs": "List the judge models available for metric evaluation."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Runs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List runs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/runs"
+          },
+          "docs": "List runs"
+        },
+        {
+          "info": {
+            "name": "Launch run",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.coval.dev/v1/runs",
+            "body": {
+              "type": "json",
+              "data": "{\"agent_id\": \"<string>\", \"persona_id\": \"<string>\", \"test_set_id\": \"<string>\"}"
+            }
+          },
+          "docs": "Launch a simulation run by pairing an agent, a persona, and a test set, optionally selecting specific metrics and mutations."
+        },
+        {
+          "info": {
+            "name": "Get run",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/runs/{run_id}"
+          },
+          "docs": "Get run"
+        },
+        {
+          "info": {
+            "name": "Update run",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.coval.dev/v1/runs/{run_id}",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update run"
+        },
+        {
+          "info": {
+            "name": "Delete run",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.coval.dev/v1/runs/{run_id}"
+          },
+          "docs": "Delete run"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Run Templates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List run templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/run-templates"
+          },
+          "docs": "List run templates"
+        },
+        {
+          "info": {
+            "name": "Create run template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.coval.dev/v1/run-templates",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create run template"
+        },
+        {
+          "info": {
+            "name": "Get run template",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/run-templates/{run_template_id}"
+          },
+          "docs": "Get run template"
+        },
+        {
+          "info": {
+            "name": "Update run template",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.coval.dev/v1/run-templates/{run_template_id}",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update run template"
+        },
+        {
+          "info": {
+            "name": "Delete run template",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.coval.dev/v1/run-templates/{run_template_id}"
+          },
+          "docs": "Delete run template"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Scheduled Runs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List scheduled runs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/scheduled-runs"
+          },
+          "docs": "List scheduled runs"
+        },
+        {
+          "info": {
+            "name": "Create scheduled run",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.coval.dev/v1/scheduled-runs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create scheduled run"
+        },
+        {
+          "info": {
+            "name": "Get scheduled run",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/scheduled-runs/{scheduled_run_id}"
+          },
+          "docs": "Get scheduled run"
+        },
+        {
+          "info": {
+            "name": "Update scheduled run",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.coval.dev/v1/scheduled-runs/{scheduled_run_id}",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update scheduled run"
+        },
+        {
+          "info": {
+            "name": "Delete scheduled run",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.coval.dev/v1/scheduled-runs/{scheduled_run_id}"
+          },
+          "docs": "Delete scheduled run"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Simulations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List simulations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/simulations"
+          },
+          "docs": "List simulations"
+        },
+        {
+          "info": {
+            "name": "Get simulation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/simulations/{simulation_id}"
+          },
+          "docs": "Get simulation"
+        },
+        {
+          "info": {
+            "name": "Update simulation",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.coval.dev/v1/simulations/{simulation_id}",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update simulation"
+        },
+        {
+          "info": {
+            "name": "Delete or cancel simulation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.coval.dev/v1/simulations/{simulation_id}"
+          },
+          "docs": "Delete or cancel simulation"
+        },
+        {
+          "info": {
+            "name": "Rerun a simulation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.coval.dev/v1/simulations/{simulation_id}/resimulate"
+          },
+          "docs": "Rerun a simulation"
+        },
+        {
+          "info": {
+            "name": "Get audio file URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/simulations/{simulation_id}/audio"
+          },
+          "docs": "Get audio file URL"
+        },
+        {
+          "info": {
+            "name": "List metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/simulations/{simulation_id}/metrics"
+          },
+          "docs": "List metrics"
+        },
+        {
+          "info": {
+            "name": "Get simulation metric output(s)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/simulations/{simulation_id}/metrics/{metric_output_id}"
+          },
+          "docs": "Get simulation metric output(s)"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Conversations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Upload audio",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.coval.dev/v1/audio:upload",
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          },
+          "docs": "Upload an audio file for use with a submitted conversation."
+        },
+        {
+          "info": {
+            "name": "Submit conversation for evaluation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.coval.dev/v1/conversations:submit",
+            "body": {
+              "type": "json",
+              "data": "{\"transcript\": []}"
+            }
+          },
+          "docs": "Submit a production conversation (transcript and/or audio) to be evaluated against metrics for observability and monitoring."
+        },
+        {
+          "info": {
+            "name": "List conversations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/conversations"
+          },
+          "docs": "List conversations"
+        },
+        {
+          "info": {
+            "name": "Get conversation details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/conversations/{conversation_id}"
+          },
+          "docs": "Get conversation details"
+        },
+        {
+          "info": {
+            "name": "Attach audio to a conversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.coval.dev/v1/conversations/{conversation_id}",
+            "body": {
+              "type": "json",
+              "data": "{\"audio_url\": \"<string>\"}"
+            }
+          },
+          "docs": "Attach audio to a conversation"
+        },
+        {
+          "info": {
+            "name": "Delete or cancel conversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.coval.dev/v1/conversations/{conversation_id}"
+          },
+          "docs": "Delete or cancel conversation"
+        },
+        {
+          "info": {
+            "name": "Get conversation audio",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/conversations/{conversation_id}/audio"
+          },
+          "docs": "Get conversation audio"
+        },
+        {
+          "info": {
+            "name": "List conversation metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/conversations/{conversation_id}/metrics"
+          },
+          "docs": "List conversation metrics"
+        },
+        {
+          "info": {
+            "name": "Get conversation metric output(s)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/conversations/{conversation_id}/metrics/{metric_output_id}"
+          },
+          "docs": "Get conversation metric output(s)"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/reports"
+          },
+          "docs": "List reports"
+        },
+        {
+          "info": {
+            "name": "Create report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.coval.dev/v1/reports",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create report"
+        },
+        {
+          "info": {
+            "name": "Get report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/reports/{report_id}"
+          },
+          "docs": "Get report"
+        },
+        {
+          "info": {
+            "name": "Update report",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.coval.dev/v1/reports/{report_id}",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update report"
+        },
+        {
+          "info": {
+            "name": "Delete report",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.coval.dev/v1/reports/{report_id}"
+          },
+          "docs": "Delete report"
+        }
+      ]
+    }
+  ]
+}

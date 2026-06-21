@@ -1,0 +1,155 @@
+aid: coval-ai
+url: https://raw.githubusercontent.com/api-evangelist/coval-ai/refs/heads/main/apis.yml
+name: Coval
+kind: company
+description: Coval is a simulation and evaluation platform for AI voice and chat
+  agents. Inspired by autonomous-vehicle testing, it simulates end customers across
+  realistic scenarios, personas, accents, and background noise, then scores agent
+  behavior with built-in and custom metrics. The REST API manages agents, test sets
+  and test cases, personas, metrics, simulation runs, and production conversations.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- AI
+- Agents
+- Voice AI
+- Simulation
+- Evaluation
+- Testing
+created: '2026-06-21'
+modified: '2026-06-21'
+specificationVersion: '0.19'
+apis:
+- aid: coval-ai:datasets
+  name: Coval Datasets API
+  tags:
+  - Datasets
+  - Test Sets
+  - Test Cases
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.coval.dev/api-reference/introduction
+  baseURL: https://api.coval.dev/v1
+  properties:
+  - url: https://docs.coval.dev/concepts/test-sets/overview
+    type: Documentation
+  - url: https://docs.coval.dev/api-reference/introduction
+    type: APIReference
+  - url: openapi/coval-ai-openapi.yml
+    type: OpenAPI
+  - url: collections/coval-ai.postman_collection.json
+    type: PostmanCollection
+  - url: collections/coval-ai.opencollection.json
+    type: OpenCollection
+  description: Manage test sets and the individual test cases (scenarios, transcripts,
+    IVR, audio, and scripts) that define the inputs an agent is simulated and
+    evaluated against.
+- aid: coval-ai:simulations
+  name: Coval Simulations & Runs API
+  tags:
+  - Simulations
+  - Test Runs
+  - Agents
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.coval.dev/api-reference/introduction
+  baseURL: https://api.coval.dev/v1
+  properties:
+  - url: https://docs.coval.dev/getting-started/welcome
+    type: Documentation
+  - url: https://docs.coval.dev/api-reference/introduction
+    type: APIReference
+  - url: openapi/coval-ai-openapi.yml
+    type: OpenAPI
+  - url: collections/coval-ai.postman_collection.json
+    type: PostmanCollection
+  - url: collections/coval-ai.opencollection.json
+    type: OpenCollection
+  description: Launch and manage simulation runs that pair an agent, persona, and
+    test set, then inspect the resulting simulations including transcripts, audio,
+    and per-metric outputs. Also covers connecting agents, run templates, and
+    scheduled runs.
+- aid: coval-ai:scenarios
+  name: Coval Scenarios & Personas API
+  tags:
+  - Scenarios
+  - Personas
+  - Voices
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.coval.dev/api-reference/introduction
+  baseURL: https://api.coval.dev/v1
+  properties:
+  - url: https://docs.coval.dev/getting-started/welcome
+    type: Documentation
+  - url: https://docs.coval.dev/api-reference/introduction
+    type: APIReference
+  - url: openapi/coval-ai-openapi.yml
+    type: OpenAPI
+  - url: collections/coval-ai.postman_collection.json
+    type: PostmanCollection
+  - url: collections/coval-ai.opencollection.json
+    type: OpenCollection
+  description: Configure the simulated callers that drive scenarios - persona prompts,
+    voices, languages, background-sound environments, and conversation behavior -
+    along with helpers to list available voices and phone-number mappings.
+- aid: coval-ai:metrics
+  name: Coval Metrics & Scorers API
+  tags:
+  - Metrics
+  - Scorers
+  - Evaluation
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.coval.dev/api-reference/introduction
+  baseURL: https://api.coval.dev/v1
+  properties:
+  - url: https://docs.coval.dev/getting-started/welcome
+    type: Documentation
+  - url: https://docs.coval.dev/api-reference/introduction
+    type: APIReference
+  - url: openapi/coval-ai-openapi.yml
+    type: OpenAPI
+  - url: collections/coval-ai.postman_collection.json
+    type: PostmanCollection
+  - url: collections/coval-ai.opencollection.json
+    type: OpenCollection
+  description: Define the scoring criteria used to evaluate agent behavior - custom
+    and built-in metric types - plus their thresholds and baselines, and list the
+    judge models available for metric evaluation.
+- aid: coval-ai:conversations
+  name: Coval Conversations & Observability API
+  tags:
+  - Conversations
+  - Observability
+  - Monitoring
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://docs.coval.dev/guides/observability
+  baseURL: https://api.coval.dev/v1
+  properties:
+  - url: https://docs.coval.dev/guides/observability
+    type: Documentation
+  - url: https://docs.coval.dev/api-reference/introduction
+    type: APIReference
+  - url: openapi/coval-ai-openapi.yml
+    type: OpenAPI
+  - url: collections/coval-ai.postman_collection.json
+    type: PostmanCollection
+  - url: collections/coval-ai.opencollection.json
+    type: OpenCollection
+  description: Submit production conversations and transcripts for evaluation, attach
+    audio, and pull per-conversation metric outputs to run evals on live traffic
+    for ongoing observability and monitoring.
+common:
+- type: GitHubOrganization
+  url: https://github.com/coval-ai
+- type: LinkedIn
+  url: https://www.linkedin.com/company/covaldev
+- type: Website
+  url: https://www.coval.dev
+- type: Documentation
+  url: https://docs.coval.dev
+- type: Plans
+  url: plans/coval-ai-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/coval-ai-rate-limits.yml
+- type: FinOps
+  url: finops/coval-ai-finops.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

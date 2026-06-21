@@ -1,0 +1,2931 @@
+{
+  "info": {
+    "_postman_id": "753b6cb8-a2a4-4107-a539-e17eb4d70311",
+    "name": "Coval API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Simulation and evaluation API for AI voice and chat agents. Manage agents, test sets and test cases, personas, metrics and their thresholds and baselines, simulation runs, run templates, scheduled runs, individual simulations, reports, and production conversations. All paths are relative to the production base URL https://api.coval.dev/v1 and authenticated with the X-API-Key header. Endpoints in this document are drawn from Coval's live per-resource OpenAPI specifications served from https://api.coval.dev/v1/openapi."
+  },
+  "item": [
+    {
+      "id": "39e7e147-aa75-44b6-aa4f-a4b4b5f8a912",
+      "name": "Agents",
+      "item": [
+        {
+          "id": "388dc6a0-c285-48a2-bac8-eeb31f63bc05",
+          "name": "List agents",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/agents",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "agents"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "List agents"
+          },
+          "response": []
+        },
+        {
+          "id": "62ad45fe-787d-4806-b6cb-72a6b595de5f",
+          "name": "Connect an agent",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/agents",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "agents"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Connect and configure an AI agent for testing.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"display_name\": \"<string>\",\n  \"model_type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "cf058183-365d-4a00-aaaf-d188a21847b7",
+          "name": "Get agent",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/agents/{agent_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "agents",
+                "{agent_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Get agent"
+          },
+          "response": []
+        },
+        {
+          "id": "5e76b5a2-828f-4dc8-a56a-327319d8413e",
+          "name": "Update agent",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/agents/{agent_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "agents",
+                "{agent_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Update agent",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "9f306171-9401-42a0-b6b4-ce1620f5d20b",
+          "name": "Delete agent",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/agents/{agent_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "agents",
+                "{agent_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Delete agent"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "6b40f529-904d-4eb6-b7e2-2eb4b2c594d3",
+      "name": "Mutations",
+      "item": [
+        {
+          "id": "6283d701-667e-4478-af7a-150a8390bc15",
+          "name": "List mutations",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/agents/{agent_id}/mutations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "agents",
+                "{agent_id}",
+                "mutations"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "List mutations"
+          },
+          "response": []
+        },
+        {
+          "id": "f1ffa4fc-9571-4136-ba75-24e0a425591b",
+          "name": "Create mutation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/agents/{agent_id}/mutations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "agents",
+                "{agent_id}",
+                "mutations"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Create mutation",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "7e047331-5633-4e38-ac7d-d860ce0b8986",
+          "name": "Get mutation",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/agents/{agent_id}/mutations/{mutation_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "agents",
+                "{agent_id}",
+                "mutations",
+                "{mutation_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Get mutation"
+          },
+          "response": []
+        },
+        {
+          "id": "df242be4-83b5-4547-b946-7fab9bac7ad4",
+          "name": "Update mutation",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/agents/{agent_id}/mutations/{mutation_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "agents",
+                "{agent_id}",
+                "mutations",
+                "{mutation_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Update mutation",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "0de69e46-1700-4aa2-8022-3d045511b735",
+          "name": "Delete mutation",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/agents/{agent_id}/mutations/{mutation_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "agents",
+                "{agent_id}",
+                "mutations",
+                "{mutation_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Delete mutation"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "8aa09817-c23b-438d-84a0-cdaa89ce2384",
+      "name": "Test Sets",
+      "item": [
+        {
+          "id": "c6cdeffa-6854-4d96-bf2a-9cf574bf4037",
+          "name": "List test sets",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/test-sets",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "test-sets"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "List test sets"
+          },
+          "response": []
+        },
+        {
+          "id": "06fa3802-7952-41f1-a7db-39752435b9ff",
+          "name": "Create test set",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/test-sets",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "test-sets"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Create test set",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"display_name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "8327b60d-37d1-41dc-87ce-3720a474b91e",
+          "name": "Get test set",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/test-sets/{test_set_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "test-sets",
+                "{test_set_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Get test set"
+          },
+          "response": []
+        },
+        {
+          "id": "fa51ba64-9c1d-4f17-96c8-9170e451a1f5",
+          "name": "Update test set",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/test-sets/{test_set_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "test-sets",
+                "{test_set_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Update test set",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "6f8c2540-1834-4efb-bc36-dfeef4b3789d",
+          "name": "Delete test set",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/test-sets/{test_set_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "test-sets",
+                "{test_set_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Delete test set"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "e475f4cc-a606-4f11-87e2-20b2afaa00c5",
+      "name": "Test Cases",
+      "item": [
+        {
+          "id": "f0ab356b-8060-400e-9849-d4e504513a79",
+          "name": "List test cases",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/test-cases",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "test-cases"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "List test cases"
+          },
+          "response": []
+        },
+        {
+          "id": "280ae9f4-7986-446d-b6f9-e7954b60c21d",
+          "name": "Create test case",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/test-cases",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "test-cases"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Create test case",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"input_str\": \"<string>\",\n  \"test_set_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "1f8b880e-8ce1-4749-acc7-1a8bd95531b3",
+          "name": "Get test case",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/test-cases/{test_case_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "test-cases",
+                "{test_case_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Get test case"
+          },
+          "response": []
+        },
+        {
+          "id": "3fbf6991-5c70-4e6d-8421-c43748b4015d",
+          "name": "Update test case",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/test-cases/{test_case_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "test-cases",
+                "{test_case_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Update test case",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "e77afb7d-ca42-435b-9801-ce3775503ebc",
+          "name": "Delete test case",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/test-cases/{test_case_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "test-cases",
+                "{test_case_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Delete test case"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "4368e9e1-406c-4a23-976d-57bc2bc69673",
+      "name": "Personas",
+      "item": [
+        {
+          "id": "55a7a2f5-2ceb-46f0-9282-68c78d2904a0",
+          "name": "List personas",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/personas",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "personas"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "List personas"
+          },
+          "response": []
+        },
+        {
+          "id": "2677a0bc-850f-4c90-a98d-c43adc0a4b26",
+          "name": "Create persona",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/personas",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "personas"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Create persona",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"voice_name\": \"<string>\",\n  \"language_code\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "5b773003-80d1-4f63-becc-5274e854f1d2",
+          "name": "List phone number mappings",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/personas/phone-numbers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "personas",
+                "phone-numbers"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "List phone number mappings"
+          },
+          "response": []
+        },
+        {
+          "id": "3bbaba79-7ed8-4136-88d9-4462ab027514",
+          "name": "List available voices",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/personas/voices",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "personas",
+                "voices"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "List available voices"
+          },
+          "response": []
+        },
+        {
+          "id": "aa303e0b-b91a-4f0e-83a9-de322805375c",
+          "name": "Get persona",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/personas/{persona_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "personas",
+                "{persona_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Get persona"
+          },
+          "response": []
+        },
+        {
+          "id": "e282e0ed-e5c8-4a4d-8059-3c28fb22e5bb",
+          "name": "Update persona",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/personas/{persona_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "personas",
+                "{persona_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Update persona",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "17f211de-df60-4382-8655-907ac3988d3b",
+          "name": "Delete persona",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/personas/{persona_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "personas",
+                "{persona_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Delete persona"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "a40b6555-abe6-4f47-8039-650d67698e2c",
+      "name": "Metrics",
+      "item": [
+        {
+          "id": "5bbb566a-2b4e-4478-9a9e-11503dfda9d4",
+          "name": "List metrics",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/metrics",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "metrics"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "List metrics"
+          },
+          "response": []
+        },
+        {
+          "id": "277176c8-f889-49c4-80cc-b4db0df336f8",
+          "name": "Create metric",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/metrics",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "metrics"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Create metric",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"metric_name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"metric_type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "6e076ccc-c706-4540-ad91-13d56935c947",
+          "name": "Get metric",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/metrics/{metric_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "metrics",
+                "{metric_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Get metric"
+          },
+          "response": []
+        },
+        {
+          "id": "e0824633-2fe1-4a62-b1bd-152f97f739f6",
+          "name": "Update metric",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/metrics/{metric_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "metrics",
+                "{metric_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Update metric",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "ce8dc5c8-1950-4984-aaff-8bd7ad3827fb",
+          "name": "Delete metric",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/metrics/{metric_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "metrics",
+                "{metric_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Delete metric"
+          },
+          "response": []
+        },
+        {
+          "id": "4009add1-a11e-4c10-87d1-e6e78394ad5b",
+          "name": "List metric thresholds",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/metrics/{metric_id}/thresholds",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "metrics",
+                "{metric_id}",
+                "thresholds"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "List metric thresholds"
+          },
+          "response": []
+        },
+        {
+          "id": "f638aa4b-cd38-4938-a26c-36b631cca9fd",
+          "name": "Create metric threshold",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/metrics/{metric_id}/thresholds",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "metrics",
+                "{metric_id}",
+                "thresholds"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Create metric threshold",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "f6f4734a-f901-4bb1-9438-4abf55641065",
+          "name": "Get metric threshold",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/metrics/{metric_id}/threshold",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "metrics",
+                "{metric_id}",
+                "threshold"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Get metric threshold"
+          },
+          "response": []
+        },
+        {
+          "id": "9de76294-e281-4cf6-8e72-87614f9f4444",
+          "name": "Update metric threshold",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/metrics/{metric_id}/threshold",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "metrics",
+                "{metric_id}",
+                "threshold"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Update metric threshold",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "1628cafa-6eac-4eb6-940c-386178a784c3",
+          "name": "Delete metric threshold",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/metrics/{metric_id}/thresholds/{threshold_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "metrics",
+                "{metric_id}",
+                "thresholds",
+                "{threshold_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Delete metric threshold"
+          },
+          "response": []
+        },
+        {
+          "id": "cc5c9867-8325-4a1c-8943-ae7038c23b53",
+          "name": "List metric baselines",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/metrics/{metric_id}/baselines",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "metrics",
+                "{metric_id}",
+                "baselines"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "List metric baselines"
+          },
+          "response": []
+        },
+        {
+          "id": "4b875df4-67e5-4bdd-8e4b-9e40919bae82",
+          "name": "Create metric baseline",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/metrics/{metric_id}/baselines",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "metrics",
+                "{metric_id}",
+                "baselines"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Create metric baseline",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "06ace0ce-4156-4a0f-a7af-660f40b8d253",
+          "name": "Get metric baseline",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/metrics/{metric_id}/baselines/{baseline_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "metrics",
+                "{metric_id}",
+                "baselines",
+                "{baseline_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Get metric baseline"
+          },
+          "response": []
+        },
+        {
+          "id": "27a41052-b649-408c-b247-9b5717b2ba62",
+          "name": "Update metric baseline",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/metrics/{metric_id}/baselines/{baseline_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "metrics",
+                "{metric_id}",
+                "baselines",
+                "{baseline_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Update metric baseline",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "75d2e930-5c95-4b68-8eb3-f199fc887ccd",
+          "name": "Delete metric baseline",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/metrics/{metric_id}/baselines/{baseline_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "metrics",
+                "{metric_id}",
+                "baselines",
+                "{baseline_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Delete metric baseline"
+          },
+          "response": []
+        },
+        {
+          "id": "7f7d87d8-d10e-46c4-9e84-a4c4a6a399bb",
+          "name": "List available metric models",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/models/metric",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "models",
+                "metric"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "List the judge models available for metric evaluation."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "dadf5dc3-17e1-4cbf-97fd-eafe5ffaf931",
+      "name": "Runs",
+      "item": [
+        {
+          "id": "b6d41bfa-d743-45a1-aef2-5b0f142a68b7",
+          "name": "List runs",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/runs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "runs"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "List runs"
+          },
+          "response": []
+        },
+        {
+          "id": "976c5104-6293-4cf3-bbce-10e413524c46",
+          "name": "Launch run",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/runs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "runs"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Launch a simulation run by pairing an agent, a persona, and a test set, optionally selecting specific metrics and mutations.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"agent_id\": \"<string>\",\n  \"persona_id\": \"<string>\",\n  \"test_set_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "a31dcc3e-9fb4-4084-9452-01f67e15ce03",
+          "name": "Get run",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/runs/{run_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "runs",
+                "{run_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Get run"
+          },
+          "response": []
+        },
+        {
+          "id": "eecb30d3-ff43-45aa-aeea-47593ca0fe90",
+          "name": "Update run",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/runs/{run_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "runs",
+                "{run_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Update run",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "fd5dbc2e-053d-41ca-bea9-320e78bdfae2",
+          "name": "Delete run",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/runs/{run_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "runs",
+                "{run_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Delete run"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "5c4c6be4-6efa-48d1-b43b-7afa97a29513",
+      "name": "Run Templates",
+      "item": [
+        {
+          "id": "74ebe4f6-44ba-45ef-b9c5-7d5e24616062",
+          "name": "List run templates",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/run-templates",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "run-templates"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "List run templates"
+          },
+          "response": []
+        },
+        {
+          "id": "8f19bb4f-3938-447e-8545-747043afc2ae",
+          "name": "Create run template",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/run-templates",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "run-templates"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Create run template",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "d92d0c04-4bd1-4659-8ff2-0c84ca0ab52b",
+          "name": "Get run template",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/run-templates/{run_template_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "run-templates",
+                "{run_template_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Get run template"
+          },
+          "response": []
+        },
+        {
+          "id": "a0e4eba8-798f-46a9-a3d1-0df6a218c474",
+          "name": "Update run template",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/run-templates/{run_template_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "run-templates",
+                "{run_template_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Update run template",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "f8419e0f-5121-42b5-a0b2-c66eaf7f5386",
+          "name": "Delete run template",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/run-templates/{run_template_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "run-templates",
+                "{run_template_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Delete run template"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "ce9953a8-a8d5-46c9-b0a3-5ce659bae103",
+      "name": "Scheduled Runs",
+      "item": [
+        {
+          "id": "c825e122-0cfa-480b-8d49-46fbc11ecafe",
+          "name": "List scheduled runs",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/scheduled-runs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "scheduled-runs"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "List scheduled runs"
+          },
+          "response": []
+        },
+        {
+          "id": "ec51cb24-6906-44cf-8225-b7ba6c5c216f",
+          "name": "Create scheduled run",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/scheduled-runs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "scheduled-runs"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Create scheduled run",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "cfe13881-bd7e-4420-9a29-cc7740f73499",
+          "name": "Get scheduled run",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/scheduled-runs/{scheduled_run_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "scheduled-runs",
+                "{scheduled_run_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Get scheduled run"
+          },
+          "response": []
+        },
+        {
+          "id": "9d9cc99a-ea02-4573-97a5-683749e11486",
+          "name": "Update scheduled run",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/scheduled-runs/{scheduled_run_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "scheduled-runs",
+                "{scheduled_run_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Update scheduled run",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "78102a95-90b4-4f39-b950-14a11a8aaaba",
+          "name": "Delete scheduled run",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/scheduled-runs/{scheduled_run_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "scheduled-runs",
+                "{scheduled_run_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Delete scheduled run"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "b253ce0c-2c8b-4bdf-b6a0-835ebbdb494a",
+      "name": "Simulations",
+      "item": [
+        {
+          "id": "ce3dc15f-5666-469d-9dad-56234c1fc43f",
+          "name": "List simulations",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/simulations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "simulations"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "List simulations"
+          },
+          "response": []
+        },
+        {
+          "id": "5eed4dd4-660b-4c34-ab75-ecce46fdaa1c",
+          "name": "Get simulation",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/simulations/{simulation_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "simulations",
+                "{simulation_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Get simulation"
+          },
+          "response": []
+        },
+        {
+          "id": "019aff27-3e1b-4755-a7cb-94472c0471f7",
+          "name": "Update simulation",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/simulations/{simulation_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "simulations",
+                "{simulation_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Update simulation",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "35910920-f31c-4b1e-a8b1-d6f71c9f2184",
+          "name": "Delete or cancel simulation",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/simulations/{simulation_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "simulations",
+                "{simulation_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Delete or cancel simulation"
+          },
+          "response": []
+        },
+        {
+          "id": "e0451fec-e1ab-48de-b5ea-ed7c8472adc3",
+          "name": "Rerun a simulation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/simulations/{simulation_id}/resimulate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "simulations",
+                "{simulation_id}",
+                "resimulate"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Rerun a simulation"
+          },
+          "response": []
+        },
+        {
+          "id": "81ebef13-97f6-43c1-8a5e-6756093e7c14",
+          "name": "Get audio file URL",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/simulations/{simulation_id}/audio",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "simulations",
+                "{simulation_id}",
+                "audio"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Get audio file URL"
+          },
+          "response": []
+        },
+        {
+          "id": "b63a2cae-e4db-44db-818d-af00f79826cb",
+          "name": "List metrics",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/simulations/{simulation_id}/metrics",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "simulations",
+                "{simulation_id}",
+                "metrics"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "List metrics"
+          },
+          "response": []
+        },
+        {
+          "id": "2ceab1d9-9afb-485e-ac5a-0790096eda95",
+          "name": "Get simulation metric output(s)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/simulations/{simulation_id}/metrics/{metric_output_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "simulations",
+                "{simulation_id}",
+                "metrics",
+                "{metric_output_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Get simulation metric output(s)"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "4d008796-0222-40d0-9997-c9f55cb649fe",
+      "name": "Conversations",
+      "item": [
+        {
+          "id": "63f203d8-b34a-4f48-a95b-0bd209b379e9",
+          "name": "Upload audio",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/audio:upload",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "audio:upload"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Upload an audio file for use with a submitted conversation.",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "5fb78e58-f607-4cac-ac19-163b8fd7f307",
+          "name": "Submit conversation for evaluation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/conversations:submit",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "conversations:submit"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Submit a production conversation (transcript and/or audio) to be evaluated against metrics for observability and monitoring.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"transcript\": []\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "90244481-2377-4917-8dbb-4357acda85cd",
+          "name": "List conversations",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/conversations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "conversations"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "List conversations"
+          },
+          "response": []
+        },
+        {
+          "id": "862b82d6-8bc9-4bcb-a0a3-c0d39da510fb",
+          "name": "Get conversation details",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/conversations/{conversation_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "conversations",
+                "{conversation_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Get conversation details"
+          },
+          "response": []
+        },
+        {
+          "id": "4ce83d0e-85f0-43ac-ab12-1f46db8c5bea",
+          "name": "Attach audio to a conversation",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/conversations/{conversation_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "conversations",
+                "{conversation_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Attach audio to a conversation",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"audio_url\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "d4b12420-65c5-4d41-b122-706704c721ce",
+          "name": "Delete or cancel conversation",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/conversations/{conversation_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "conversations",
+                "{conversation_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Delete or cancel conversation"
+          },
+          "response": []
+        },
+        {
+          "id": "007176b7-f4ee-444e-8392-3e39dc544c57",
+          "name": "Get conversation audio",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/conversations/{conversation_id}/audio",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "conversations",
+                "{conversation_id}",
+                "audio"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Get conversation audio"
+          },
+          "response": []
+        },
+        {
+          "id": "d72a2dc0-b775-4bec-ad35-f955dc0344ea",
+          "name": "List conversation metrics",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/conversations/{conversation_id}/metrics",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "conversations",
+                "{conversation_id}",
+                "metrics"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "List conversation metrics"
+          },
+          "response": []
+        },
+        {
+          "id": "8b6c0e47-df85-42dc-8a70-0689df82d601",
+          "name": "Get conversation metric output(s)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/conversations/{conversation_id}/metrics/{metric_output_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "conversations",
+                "{conversation_id}",
+                "metrics",
+                "{metric_output_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Get conversation metric output(s)"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "id": "a1b238e7-26c8-4ca4-ba5c-85072e0e7420",
+      "name": "Reports",
+      "item": [
+        {
+          "id": "2676da95-4e9b-45cb-a626-9808aaaf4cb8",
+          "name": "List reports",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/reports",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "reports"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "List reports"
+          },
+          "response": []
+        },
+        {
+          "id": "70d43354-9204-4e7d-a745-06850f62d754",
+          "name": "Create report",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/reports",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "reports"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Create report",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "f8339974-3302-46b5-a6d6-b84f814272a4",
+          "name": "Get report",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/reports/{report_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "reports",
+                "{report_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Get report"
+          },
+          "response": []
+        },
+        {
+          "id": "93c64f44-892a-4e90-a5ad-59bbe7791e7d",
+          "name": "Update report",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/reports/{report_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "reports",
+                "{report_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Update report",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "ede65f8e-e5da-42f4-820c-970aa5f235a1",
+          "name": "Delete report",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-API-Key",
+                "value": "{{apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "https://api.coval.dev/v1/reports/{report_id}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "reports",
+                "{report_id}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "description": "Delete report"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.coval.dev/v1"
+    },
+    {
+      "key": "apiKey",
+      "value": ""
+    }
+  ]
+}

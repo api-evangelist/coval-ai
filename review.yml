@@ -1,0 +1,119 @@
+aid: coval-ai
+name: Coval
+review:
+  question: Does Coval expose a documented public WebSocket or streaming API?
+  answer: false
+  date: '2026-06-21'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was created. Coval's public API is a synchronous REST
+    API over HTTPS under https://api.coval.dev/v1. No WebSocket (ws:// or
+    wss://) surface and no HTTP Server-Sent Events (SSE) stream are documented.
+    The platform does ingest production telemetry (conversations / transcripts
+    and OpenTelemetry traces), but those are submitted via ordinary REST POSTs,
+    not a streaming protocol, so there is no event-driven surface to model.
+disambiguation:
+  note: |
+    This profile is for Coval (coval.dev / coval.ai, GitHub org coval-ai), the
+    simulation and evaluation platform for AI voice and chat agents, founded by
+    Brooke Hopkins and backed by Y Combinator. It is NOT Covalent
+    (covalenthq.com / covalent.xyz), the blockchain data / unified API company,
+    which is a separate organization already represented in the catalog. The
+    names are similar but the companies, domains, products, and APIs are
+    unrelated.
+findings:
+  summary: |
+    Coval publishes a synchronous REST API for simulation and evaluation of AI
+    voice and chat agents. It is authenticated with an organization-scoped API
+    key sent in the X-API-Key header. The API exposes resource collections for
+    agents (and agent mutations), test sets and test cases, personas (with
+    voice and phone-number helpers), metrics (with thresholds and baselines),
+    runs, run templates, scheduled runs, individual simulations, production
+    conversations, and reports. Coval serves a live, per-resource set of
+    OpenAPI specifications from https://api.coval.dev/v1/openapi. No WebSocket
+    or SSE streaming endpoint is documented.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.coval.dev/v1
+      documented: true
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented in Coval's API reference.
+    - protocol: SSE
+      scheme: https
+      documented: false
+      note: No Server-Sent Events streaming endpoint is documented.
+  authentication:
+    scheme: apiKey
+    in: header
+    headerName: X-API-Key
+    note: >-
+      Organization API key managed under Organization > Manage > API Keys.
+      Live specs spell the header X-API-Key / x-api-key interchangeably; the
+      header name is case-insensitive per HTTP.
+  endpointsConfirmedRest:
+    - GET    https://api.coval.dev/v1/agents
+    - POST   https://api.coval.dev/v1/agents
+    - GET    https://api.coval.dev/v1/agents/{agent_id}
+    - PATCH  https://api.coval.dev/v1/agents/{agent_id}
+    - DELETE https://api.coval.dev/v1/agents/{agent_id}
+    - GET    https://api.coval.dev/v1/agents/{agent_id}/mutations
+    - POST   https://api.coval.dev/v1/agents/{agent_id}/mutations
+    - GET    https://api.coval.dev/v1/test-sets
+    - POST   https://api.coval.dev/v1/test-sets
+    - GET    https://api.coval.dev/v1/test-cases
+    - POST   https://api.coval.dev/v1/test-cases
+    - GET    https://api.coval.dev/v1/personas
+    - POST   https://api.coval.dev/v1/personas
+    - GET    https://api.coval.dev/v1/personas/voices
+    - GET    https://api.coval.dev/v1/personas/phone-numbers
+    - GET    https://api.coval.dev/v1/metrics
+    - POST   https://api.coval.dev/v1/metrics
+    - GET    https://api.coval.dev/v1/metrics/{metric_id}/thresholds
+    - GET    https://api.coval.dev/v1/metrics/{metric_id}/baselines
+    - GET    https://api.coval.dev/v1/models/metric
+    - GET    https://api.coval.dev/v1/runs
+    - POST   https://api.coval.dev/v1/runs
+    - GET    https://api.coval.dev/v1/run-templates
+    - GET    https://api.coval.dev/v1/scheduled-runs
+    - GET    https://api.coval.dev/v1/simulations
+    - GET    https://api.coval.dev/v1/simulations/{simulation_id}
+    - POST   https://api.coval.dev/v1/simulations/{simulation_id}/resimulate
+    - GET    https://api.coval.dev/v1/simulations/{simulation_id}/audio
+    - POST   https://api.coval.dev/v1/audio:upload
+    - POST   https://api.coval.dev/v1/conversations:submit
+    - GET    https://api.coval.dev/v1/conversations
+    - GET    https://api.coval.dev/v1/reports
+    - POST   https://api.coval.dev/v1/reports
+sources:
+  - url: https://docs.coval.dev/api-reference/introduction
+    type: APIReference
+    note: API overview; base URL https://api.coval.dev/v1, X-API-Key header. Docs redirect to docs.coval.ai.
+  - url: https://api.coval.dev/v1/openapi
+    type: OpenAPI
+    note: Index of live per-resource OpenAPI specs (agents, test-sets, test-cases, personas, metrics, runs, simulations, conversations, mutations, run-templates, scheduled-runs, reports, and others).
+  - url: https://docs.coval.dev/guides/API-Keys
+    type: Documentation
+    note: API keys are organization-scoped and managed in the console.
+  - url: https://docs.coval.dev/guides/observability
+    type: Documentation
+    note: Production conversations / transcripts are submitted over REST for evaluation; no streaming transport.
+  - url: https://github.com/coval-ai
+    type: GitHubOrganization
+    note: Coval GitHub organization (voice-AI benchmarking, eval CLI / GitHub Action).
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket or SSE protocol surface exists, so no AsyncAPI document was
+    authored. A consolidated OpenAPI 3.0.1 document was created at
+    openapi/coval-ai-openapi.yml from Coval's live per-resource specs, and the
+    apis.yml groups the REST surface into five sub-APIs (Datasets, Simulations
+    & Runs, Scenarios & Personas, Metrics & Scorers, Conversations &
+    Observability).
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
