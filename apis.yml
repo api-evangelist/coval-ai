@@ -136,6 +136,8 @@ apis:
     audio, and pull per-conversation metric outputs to run evals on live traffic
     for ongoing observability and monitoring.
 common:
+- type: AgenticAccess
+  url: agentic-access/coval-ai-agentic-access.yml
 - type: DomainSecurity
   url: security/coval-ai-domain-security.yml
 - type: Authentication
