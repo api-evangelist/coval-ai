@@ -1,0 +1,185 @@
+openapi: 3.0.1
+info:
+  title: Coval Agents Personas API
+  description: Simulation and evaluation API for AI voice and chat agents. Manage agents, test sets and test cases, personas, metrics and their thresholds and baselines, simulation runs, run templates, scheduled runs, individual simulations, reports, and production conversations. All paths are relative to the production base URL https://api.coval.dev/v1 and authenticated with the X-API-Key header. Endpoints in this document are drawn from Coval's live per-resource OpenAPI specifications served from https://api.coval.dev/v1/openapi.
+  termsOfService: https://coval.dev/terms
+  contact:
+    name: Coval API Support
+    email: support@coval.dev
+    url: https://docs.coval.dev
+  license:
+    name: Proprietary
+    url: https://coval.dev/terms
+  version: 1.0.0
+servers:
+- url: https://api.coval.dev/v1
+  description: Production API
+security:
+- ApiKeyAuth: []
+tags:
+- name: Personas
+  description: Configure simulated callers, voices, and scenario behavior.
+paths:
+  /personas:
+    get:
+      operationId: listPersonas
+      summary: List personas
+      tags:
+      - Personas
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: A list of personas.
+    post:
+      operationId: createPersona
+      summary: Create persona
+      tags:
+      - Personas
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PersonaCreate'
+      responses:
+        '201':
+          description: Persona created.
+  /personas/phone-numbers:
+    get:
+      operationId: listPersonasPhoneNumbers
+      summary: List phone number mappings
+      tags:
+      - Personas
+      responses:
+        '200':
+          description: A list of phone number mappings.
+  /personas/voices:
+    get:
+      operationId: listPersonasVoices
+      summary: List available voices
+      tags:
+      - Personas
+      responses:
+        '200':
+          description: A list of available voices.
+  /personas/{persona_id}:
+    parameters:
+    - $ref: '#/components/parameters/PersonaId'
+    get:
+      operationId: getPersona
+      summary: Get persona
+      tags:
+      - Personas
+      responses:
+        '200':
+          description: The requested persona.
+    patch:
+      operationId: updatePersona
+      summary: Update persona
+      tags:
+      - Personas
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Updated persona.
+    delete:
+      operationId: deletePersona
+      summary: Delete persona
+      tags:
+      - Personas
+      responses:
+        '204':
+          description: Persona deleted.
+components:
+  schemas:
+    PersonaCreate:
+      type: object
+      required:
+      - name
+      - voice_name
+      - language_code
+      properties:
+        name:
+          type: string
+        persona_prompt:
+          type: string
+        voice_name:
+          type: string
+        language_code:
+          type: string
+        background_sound:
+          type: string
+          enum:
+          - 'off'
+          - office
+          - lounge
+          - crowd
+          - airport
+          - bus
+          - playground
+          - doorbell
+          - train-arrival
+          - portable-air-conditioner
+          - skatepark
+          - small-dog-bark
+          - cafe
+          - ferry-and-announcement
+          - heavy-rain
+          - moderate-wind
+          - newborn-baby-crying
+          - office-with-alarm
+          - street-with-sirens
+          - construction-work
+        background_sound_volume:
+          type: number
+        voice_volume:
+          type: number
+        voice_speed:
+          type: number
+        wait_seconds:
+          type: number
+        conversation_initiation:
+          type: string
+          enum:
+          - speak_first
+          - wait_for_user
+        multi_language_stt:
+          type: boolean
+        hold_music_timeout_seconds:
+          type: number
+        tags:
+          type: array
+          items:
+            type: string
+  parameters:
+    Cursor:
+      name: cursor
+      in: query
+      description: Pagination cursor.
+      schema:
+        type: string
+    PersonaId:
+      name: persona_id
+      in: path
+      required: true
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Maximum number of items to return.
+      schema:
+        type: integer
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: Organization API key for authentication.

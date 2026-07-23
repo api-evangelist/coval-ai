@@ -1,0 +1,142 @@
+openapi: 3.0.1
+info:
+  title: Coval Agents API
+  description: Simulation and evaluation API for AI voice and chat agents. Manage agents, test sets and test cases, personas, metrics and their thresholds and baselines, simulation runs, run templates, scheduled runs, individual simulations, reports, and production conversations. All paths are relative to the production base URL https://api.coval.dev/v1 and authenticated with the X-API-Key header. Endpoints in this document are drawn from Coval's live per-resource OpenAPI specifications served from https://api.coval.dev/v1/openapi.
+  termsOfService: https://coval.dev/terms
+  contact:
+    name: Coval API Support
+    email: support@coval.dev
+    url: https://docs.coval.dev
+  license:
+    name: Proprietary
+    url: https://coval.dev/terms
+  version: 1.0.0
+servers:
+- url: https://api.coval.dev/v1
+  description: Production API
+security:
+- ApiKeyAuth: []
+tags:
+- name: Agents
+  description: Connect and manage AI agents under test.
+paths:
+  /agents:
+    get:
+      operationId: listAgents
+      summary: List agents
+      tags:
+      - Agents
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: A list of agents.
+    post:
+      operationId: createAgent
+      summary: Connect an agent
+      description: Connect and configure an AI agent for testing.
+      tags:
+      - Agents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AgentCreate'
+      responses:
+        '201':
+          description: Agent created.
+  /agents/{agent_id}:
+    parameters:
+    - $ref: '#/components/parameters/AgentId'
+    get:
+      operationId: getAgent
+      summary: Get agent
+      tags:
+      - Agents
+      responses:
+        '200':
+          description: The requested agent.
+    patch:
+      operationId: updateAgent
+      summary: Update agent
+      tags:
+      - Agents
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Updated agent.
+    delete:
+      operationId: deleteAgent
+      summary: Delete agent
+      tags:
+      - Agents
+      responses:
+        '204':
+          description: Agent deleted.
+components:
+  parameters:
+    AgentId:
+      name: agent_id
+      in: path
+      required: true
+      schema:
+        type: string
+    Cursor:
+      name: cursor
+      in: query
+      description: Pagination cursor.
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Maximum number of items to return.
+      schema:
+        type: integer
+  schemas:
+    AgentCreate:
+      type: object
+      required:
+      - display_name
+      - model_type
+      properties:
+        display_name:
+          type: string
+        model_type:
+          type: string
+          description: Simulator/agent connection type (e.g. voice or chat connection).
+        phone_number:
+          type: string
+        endpoint:
+          type: string
+        prompt:
+          type: string
+        metadata:
+          type: object
+        workflows:
+          type: object
+        metric_ids:
+          type: array
+          items:
+            type: string
+        test_set_ids:
+          type: array
+          items:
+            type: string
+        tags:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: Organization API key for authentication.

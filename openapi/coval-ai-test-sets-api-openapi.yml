@@ -1,0 +1,129 @@
+openapi: 3.0.1
+info:
+  title: Coval Agents Test Sets API
+  description: Simulation and evaluation API for AI voice and chat agents. Manage agents, test sets and test cases, personas, metrics and their thresholds and baselines, simulation runs, run templates, scheduled runs, individual simulations, reports, and production conversations. All paths are relative to the production base URL https://api.coval.dev/v1 and authenticated with the X-API-Key header. Endpoints in this document are drawn from Coval's live per-resource OpenAPI specifications served from https://api.coval.dev/v1/openapi.
+  termsOfService: https://coval.dev/terms
+  contact:
+    name: Coval API Support
+    email: support@coval.dev
+    url: https://docs.coval.dev
+  license:
+    name: Proprietary
+    url: https://coval.dev/terms
+  version: 1.0.0
+servers:
+- url: https://api.coval.dev/v1
+  description: Production API
+security:
+- ApiKeyAuth: []
+tags:
+- name: Test Sets
+  description: Manage collections of test cases (datasets).
+paths:
+  /test-sets:
+    get:
+      operationId: listTestSets
+      summary: List test sets
+      tags:
+      - Test Sets
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: A list of test sets.
+    post:
+      operationId: createTestSet
+      summary: Create test set
+      tags:
+      - Test Sets
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestSetCreate'
+      responses:
+        '201':
+          description: Test set created.
+  /test-sets/{test_set_id}:
+    parameters:
+    - $ref: '#/components/parameters/TestSetId'
+    get:
+      operationId: getTestSet
+      summary: Get test set
+      tags:
+      - Test Sets
+      responses:
+        '200':
+          description: The requested test set.
+    patch:
+      operationId: updateTestSet
+      summary: Update test set
+      tags:
+      - Test Sets
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Updated test set.
+    delete:
+      operationId: deleteTestSet
+      summary: Delete test set
+      tags:
+      - Test Sets
+      responses:
+        '204':
+          description: Test set deleted.
+components:
+  parameters:
+    TestSetId:
+      name: test_set_id
+      in: path
+      required: true
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Maximum number of items to return.
+      schema:
+        type: integer
+    Cursor:
+      name: cursor
+      in: query
+      description: Pagination cursor.
+      schema:
+        type: string
+  schemas:
+    TestSetCreate:
+      type: object
+      required:
+      - display_name
+      properties:
+        display_name:
+          type: string
+        slug:
+          type: string
+        description:
+          type: string
+        test_set_type:
+          type: string
+        test_set_metadata:
+          type: object
+        parameters:
+          type: object
+        tags:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: Organization API key for authentication.

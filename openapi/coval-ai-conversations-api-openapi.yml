@@ -1,0 +1,197 @@
+openapi: 3.0.1
+info:
+  title: Coval Agents Conversations API
+  description: Simulation and evaluation API for AI voice and chat agents. Manage agents, test sets and test cases, personas, metrics and their thresholds and baselines, simulation runs, run templates, scheduled runs, individual simulations, reports, and production conversations. All paths are relative to the production base URL https://api.coval.dev/v1 and authenticated with the X-API-Key header. Endpoints in this document are drawn from Coval's live per-resource OpenAPI specifications served from https://api.coval.dev/v1/openapi.
+  termsOfService: https://coval.dev/terms
+  contact:
+    name: Coval API Support
+    email: support@coval.dev
+    url: https://docs.coval.dev
+  license:
+    name: Proprietary
+    url: https://coval.dev/terms
+  version: 1.0.0
+servers:
+- url: https://api.coval.dev/v1
+  description: Production API
+security:
+- ApiKeyAuth: []
+tags:
+- name: Conversations
+  description: Submit and evaluate production conversations.
+paths:
+  /audio:upload:
+    post:
+      operationId: createAudioUpload
+      summary: Upload audio
+      description: Upload an audio file for use with a submitted conversation.
+      tags:
+      - Conversations
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '201':
+          description: Audio uploaded; returns an upload id.
+  /conversations:submit:
+    post:
+      operationId: submitConversation
+      summary: Submit conversation for evaluation
+      description: Submit a production conversation (transcript and/or audio) to be evaluated against metrics for observability and monitoring.
+      tags:
+      - Conversations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConversationSubmit'
+      responses:
+        '201':
+          description: Conversation submitted for evaluation.
+  /conversations:
+    get:
+      operationId: listConversations
+      summary: List conversations
+      tags:
+      - Conversations
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: A list of conversations.
+  /conversations/{conversation_id}:
+    parameters:
+    - $ref: '#/components/parameters/ConversationId'
+    get:
+      operationId: getConversation
+      summary: Get conversation details
+      tags:
+      - Conversations
+      responses:
+        '200':
+          description: The requested conversation.
+    patch:
+      operationId: patchConversation
+      summary: Attach audio to a conversation
+      tags:
+      - Conversations
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                audio_url:
+                  type: string
+                upload_id:
+                  type: string
+      responses:
+        '200':
+          description: Conversation updated.
+    delete:
+      operationId: deleteConversation
+      summary: Delete or cancel conversation
+      tags:
+      - Conversations
+      responses:
+        '204':
+          description: Conversation deleted or cancelled.
+  /conversations/{conversation_id}/audio:
+    parameters:
+    - $ref: '#/components/parameters/ConversationId'
+    get:
+      operationId: getConversationAudio
+      summary: Get conversation audio
+      tags:
+      - Conversations
+      responses:
+        '200':
+          description: A URL to the conversation audio file.
+  /conversations/{conversation_id}/metrics:
+    parameters:
+    - $ref: '#/components/parameters/ConversationId'
+    get:
+      operationId: listConversationMetrics
+      summary: List conversation metrics
+      tags:
+      - Conversations
+      responses:
+        '200':
+          description: A list of metric outputs for the conversation.
+  /conversations/{conversation_id}/metrics/{metric_output_id}:
+    parameters:
+    - $ref: '#/components/parameters/ConversationId'
+    - name: metric_output_id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: getConversationMetric
+      summary: Get conversation metric output(s)
+      tags:
+      - Conversations
+      responses:
+        '200':
+          description: A single conversation metric output.
+components:
+  parameters:
+    Cursor:
+      name: cursor
+      in: query
+      description: Pagination cursor.
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Maximum number of items to return.
+      schema:
+        type: integer
+    ConversationId:
+      name: conversation_id
+      in: path
+      required: true
+      schema:
+        type: string
+  schemas:
+    ConversationSubmit:
+      type: object
+      properties:
+        transcript:
+          type: array
+          items:
+            type: object
+        audio_url:
+          type: string
+        upload_id:
+          type: string
+        metrics:
+          type: array
+          items:
+            type: string
+        metadata:
+          type: object
+        external_conversation_id:
+          type: string
+        occurred_at:
+          type: string
+          format: date-time
+        agent_id:
+          type: string
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: Organization API key for authentication.

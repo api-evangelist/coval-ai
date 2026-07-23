@@ -1,0 +1,147 @@
+openapi: 3.0.1
+info:
+  title: Coval Agents Test Cases API
+  description: Simulation and evaluation API for AI voice and chat agents. Manage agents, test sets and test cases, personas, metrics and their thresholds and baselines, simulation runs, run templates, scheduled runs, individual simulations, reports, and production conversations. All paths are relative to the production base URL https://api.coval.dev/v1 and authenticated with the X-API-Key header. Endpoints in this document are drawn from Coval's live per-resource OpenAPI specifications served from https://api.coval.dev/v1/openapi.
+  termsOfService: https://coval.dev/terms
+  contact:
+    name: Coval API Support
+    email: support@coval.dev
+    url: https://docs.coval.dev
+  license:
+    name: Proprietary
+    url: https://coval.dev/terms
+  version: 1.0.0
+servers:
+- url: https://api.coval.dev/v1
+  description: Production API
+security:
+- ApiKeyAuth: []
+tags:
+- name: Test Cases
+  description: Manage individual evaluation inputs within a test set.
+paths:
+  /test-cases:
+    get:
+      operationId: listTestCases
+      summary: List test cases
+      tags:
+      - Test Cases
+      parameters:
+      - name: test_set_id
+        in: query
+        schema:
+          type: string
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: A list of test cases.
+    post:
+      operationId: createTestCase
+      summary: Create test case
+      tags:
+      - Test Cases
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TestCaseCreate'
+      responses:
+        '201':
+          description: Test case created.
+  /test-cases/{test_case_id}:
+    parameters:
+    - $ref: '#/components/parameters/TestCaseId'
+    get:
+      operationId: getTestCase
+      summary: Get test case
+      tags:
+      - Test Cases
+      responses:
+        '200':
+          description: The requested test case.
+    patch:
+      operationId: updateTestCase
+      summary: Update test case
+      tags:
+      - Test Cases
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Updated test case.
+    delete:
+      operationId: deleteTestCase
+      summary: Delete test case
+      tags:
+      - Test Cases
+      responses:
+        '204':
+          description: Test case deleted.
+components:
+  schemas:
+    TestCaseCreate:
+      type: object
+      required:
+      - input_str
+      - test_set_id
+      properties:
+        input_str:
+          type: string
+        test_set_id:
+          type: string
+        expected_behaviors:
+          type: array
+          items:
+            type: string
+        expected_output_str:
+          type: string
+        expected_output_json:
+          type: object
+        description:
+          type: string
+        input_type:
+          type: string
+          enum:
+          - SCENARIO
+          - TRANSCRIPT
+          - IVR
+          - AUDIO
+          - MANUAL
+          - SCRIPT
+        simulation_metadata_input:
+          type: object
+        metric_input:
+          type: object
+        user_notes:
+          type: string
+  parameters:
+    Cursor:
+      name: cursor
+      in: query
+      description: Pagination cursor.
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Maximum number of items to return.
+      schema:
+        type: integer
+    TestCaseId:
+      name: test_case_id
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: Organization API key for authentication.

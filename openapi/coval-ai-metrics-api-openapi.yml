@@ -1,0 +1,288 @@
+openapi: 3.0.1
+info:
+  title: Coval Agents Metrics API
+  description: Simulation and evaluation API for AI voice and chat agents. Manage agents, test sets and test cases, personas, metrics and their thresholds and baselines, simulation runs, run templates, scheduled runs, individual simulations, reports, and production conversations. All paths are relative to the production base URL https://api.coval.dev/v1 and authenticated with the X-API-Key header. Endpoints in this document are drawn from Coval's live per-resource OpenAPI specifications served from https://api.coval.dev/v1/openapi.
+  termsOfService: https://coval.dev/terms
+  contact:
+    name: Coval API Support
+    email: support@coval.dev
+    url: https://docs.coval.dev
+  license:
+    name: Proprietary
+    url: https://coval.dev/terms
+  version: 1.0.0
+servers:
+- url: https://api.coval.dev/v1
+  description: Production API
+security:
+- ApiKeyAuth: []
+tags:
+- name: Metrics
+  description: Define scoring criteria, thresholds, and baselines.
+paths:
+  /metrics:
+    get:
+      operationId: listMetrics
+      summary: List metrics
+      tags:
+      - Metrics
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Cursor'
+      responses:
+        '200':
+          description: A list of metrics.
+    post:
+      operationId: createMetric
+      summary: Create metric
+      tags:
+      - Metrics
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetricCreate'
+      responses:
+        '201':
+          description: Metric created.
+  /metrics/{metric_id}:
+    parameters:
+    - $ref: '#/components/parameters/MetricId'
+    get:
+      operationId: getMetric
+      summary: Get metric
+      tags:
+      - Metrics
+      responses:
+        '200':
+          description: The requested metric.
+    patch:
+      operationId: updateMetric
+      summary: Update metric
+      tags:
+      - Metrics
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Updated metric.
+    delete:
+      operationId: deleteMetric
+      summary: Delete metric
+      tags:
+      - Metrics
+      responses:
+        '204':
+          description: Metric deleted.
+  /metrics/{metric_id}/thresholds:
+    parameters:
+    - $ref: '#/components/parameters/MetricId'
+    get:
+      operationId: listMetricThresholds
+      summary: List metric thresholds
+      tags:
+      - Metrics
+      responses:
+        '200':
+          description: A list of metric thresholds.
+    post:
+      operationId: createMetricThreshold
+      summary: Create metric threshold
+      tags:
+      - Metrics
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: Threshold created.
+  /metrics/{metric_id}/threshold:
+    parameters:
+    - $ref: '#/components/parameters/MetricId'
+    get:
+      operationId: getMetricThreshold
+      summary: Get metric threshold
+      tags:
+      - Metrics
+      responses:
+        '200':
+          description: The requested metric threshold.
+    patch:
+      operationId: updateMetricThreshold
+      summary: Update metric threshold
+      tags:
+      - Metrics
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Updated threshold.
+  /metrics/{metric_id}/thresholds/{threshold_id}:
+    parameters:
+    - $ref: '#/components/parameters/MetricId'
+    - name: threshold_id
+      in: path
+      required: true
+      schema:
+        type: string
+    delete:
+      operationId: deleteMetricThreshold
+      summary: Delete metric threshold
+      tags:
+      - Metrics
+      responses:
+        '204':
+          description: Threshold deleted.
+  /metrics/{metric_id}/baselines:
+    parameters:
+    - $ref: '#/components/parameters/MetricId'
+    get:
+      operationId: listMetricBaselines
+      summary: List metric baselines
+      tags:
+      - Metrics
+      responses:
+        '200':
+          description: A list of metric baselines.
+    post:
+      operationId: createMetricBaseline
+      summary: Create metric baseline
+      tags:
+      - Metrics
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '201':
+          description: Baseline created.
+  /metrics/{metric_id}/baselines/{baseline_id}:
+    parameters:
+    - $ref: '#/components/parameters/MetricId'
+    - name: baseline_id
+      in: path
+      required: true
+      schema:
+        type: string
+    get:
+      operationId: getMetricBaseline
+      summary: Get metric baseline
+      tags:
+      - Metrics
+      responses:
+        '200':
+          description: The requested metric baseline.
+    patch:
+      operationId: updateMetricBaseline
+      summary: Update metric baseline
+      tags:
+      - Metrics
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Updated baseline.
+    delete:
+      operationId: deleteMetricBaseline
+      summary: Delete metric baseline
+      tags:
+      - Metrics
+      responses:
+        '204':
+          description: Baseline deleted.
+  /models/metric:
+    get:
+      operationId: listMetricModels
+      summary: List available metric models
+      description: List the judge models available for metric evaluation.
+      tags:
+      - Metrics
+      responses:
+        '200':
+          description: A list of metric judge models.
+components:
+  schemas:
+    MetricCreate:
+      type: object
+      required:
+      - metric_name
+      - description
+      - metric_type
+      properties:
+        metric_name:
+          type: string
+        description:
+          type: string
+        metric_type:
+          type: string
+          description: The kind of scorer (e.g. LLM-judge, regex, numeric, boolean).
+        prompt:
+          type: string
+        categories:
+          type: array
+          items:
+            type: string
+        min_value:
+          type: number
+        max_value:
+          type: number
+        metadata_field_key:
+          type: string
+        regex_pattern:
+          type: string
+        role:
+          type: string
+          enum:
+          - agent
+          - user
+        min_pause_duration_seconds:
+          type: number
+        include_traces:
+          type: boolean
+        tags:
+          type: array
+          items:
+            type: string
+  parameters:
+    MetricId:
+      name: metric_id
+      in: path
+      required: true
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Maximum number of items to return.
+      schema:
+        type: integer
+    Cursor:
+      name: cursor
+      in: query
+      description: Pagination cursor.
+      schema:
+        type: string
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: Organization API key for authentication.
