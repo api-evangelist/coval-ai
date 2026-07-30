@@ -7,7 +7,20 @@ description: Coval is a simulation and evaluation platform for AI voice and chat
   realistic scenarios, personas, accents, and background noise, then scores agent
   behavior with built-in and custom metrics. The REST API manages agents, test sets
   and test cases, personas, metrics, simulation runs, and production conversations.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: enterprise
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Enterprise · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/coval-ai.png
 tags:
 - AI
 - Agents
@@ -19,122 +32,270 @@ created: '2026-06-21'
 modified: '2026-06-21'
 specificationVersion: '0.19'
 apis:
-- aid: coval-ai:datasets
-  name: Coval Datasets API
-  tags:
-  - Datasets
-  - Test Sets
-  - Test Cases
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+- aid: coval-ai:coval-ai-agents-api
+  name: Coval Agents API
+  description: Connect and manage AI agents under test.
   humanURL: https://docs.coval.dev/api-reference/introduction
   baseURL: https://api.coval.dev/v1
-  properties:
-  - url: https://docs.coval.dev/concepts/test-sets/overview
-    type: Documentation
-  - url: https://docs.coval.dev/api-reference/introduction
-    type: APIReference
-  - url: openapi/coval-ai-openapi.yml
-    type: OpenAPI
-  - url: collections/coval-ai.postman_collection.json
-    type: PostmanCollection
-  - url: collections/coval-ai.opencollection.json
-    type: OpenCollection
-  description: Manage test sets and the individual test cases (scenarios, transcripts,
-    IVR, audio, and scripts) that define the inputs an agent is simulated and
-    evaluated against.
-- aid: coval-ai:simulations
-  name: Coval Simulations & Runs API
   tags:
-  - Simulations
-  - Test Runs
   - Agents
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  properties:
+  - type: OpenAPI
+    url: openapi/coval-ai-agents-api-openapi.yml
+  - type: Documentation
+    url: https://docs.coval.dev/concepts/test-sets/overview
+  - type: APIReference
+    url: https://docs.coval.dev/api-reference/introduction
+  - type: PostmanCollection
+    url: collections/coval-ai.postman_collection.json
+  - type: OpenCollection
+    url: collections/coval-ai.opencollection.json
+  - type: Documentation
+    url: https://docs.coval.dev/getting-started/welcome
+  - type: Documentation
+    url: https://docs.coval.dev/guides/observability
+- aid: coval-ai:coval-ai-conversations-api
+  name: Coval Conversations API
+  description: Submit and evaluate production conversations.
   humanURL: https://docs.coval.dev/api-reference/introduction
   baseURL: https://api.coval.dev/v1
-  properties:
-  - url: https://docs.coval.dev/getting-started/welcome
-    type: Documentation
-  - url: https://docs.coval.dev/api-reference/introduction
-    type: APIReference
-  - url: openapi/coval-ai-openapi.yml
-    type: OpenAPI
-  - url: collections/coval-ai.postman_collection.json
-    type: PostmanCollection
-  - url: collections/coval-ai.opencollection.json
-    type: OpenCollection
-  description: Launch and manage simulation runs that pair an agent, persona, and
-    test set, then inspect the resulting simulations including transcripts, audio,
-    and per-metric outputs. Also covers connecting agents, run templates, and
-    scheduled runs.
-- aid: coval-ai:scenarios
-  name: Coval Scenarios & Personas API
-  tags:
-  - Scenarios
-  - Personas
-  - Voices
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.coval.dev/api-reference/introduction
-  baseURL: https://api.coval.dev/v1
-  properties:
-  - url: https://docs.coval.dev/getting-started/welcome
-    type: Documentation
-  - url: https://docs.coval.dev/api-reference/introduction
-    type: APIReference
-  - url: openapi/coval-ai-openapi.yml
-    type: OpenAPI
-  - url: collections/coval-ai.postman_collection.json
-    type: PostmanCollection
-  - url: collections/coval-ai.opencollection.json
-    type: OpenCollection
-  description: Configure the simulated callers that drive scenarios - persona prompts,
-    voices, languages, background-sound environments, and conversation behavior -
-    along with helpers to list available voices and phone-number mappings.
-- aid: coval-ai:metrics
-  name: Coval Metrics & Scorers API
-  tags:
-  - Metrics
-  - Scorers
-  - Evaluation
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.coval.dev/api-reference/introduction
-  baseURL: https://api.coval.dev/v1
-  properties:
-  - url: https://docs.coval.dev/getting-started/welcome
-    type: Documentation
-  - url: https://docs.coval.dev/api-reference/introduction
-    type: APIReference
-  - url: openapi/coval-ai-openapi.yml
-    type: OpenAPI
-  - url: collections/coval-ai.postman_collection.json
-    type: PostmanCollection
-  - url: collections/coval-ai.opencollection.json
-    type: OpenCollection
-  description: Define the scoring criteria used to evaluate agent behavior - custom
-    and built-in metric types - plus their thresholds and baselines, and list the
-    judge models available for metric evaluation.
-- aid: coval-ai:conversations
-  name: Coval Conversations & Observability API
   tags:
   - Conversations
-  - Observability
-  - Monitoring
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://docs.coval.dev/guides/observability
-  baseURL: https://api.coval.dev/v1
   properties:
-  - url: https://docs.coval.dev/guides/observability
-    type: Documentation
-  - url: https://docs.coval.dev/api-reference/introduction
-    type: APIReference
-  - url: openapi/coval-ai-openapi.yml
-    type: OpenAPI
-  - url: collections/coval-ai.postman_collection.json
-    type: PostmanCollection
-  - url: collections/coval-ai.opencollection.json
-    type: OpenCollection
-  description: Submit production conversations and transcripts for evaluation, attach
-    audio, and pull per-conversation metric outputs to run evals on live traffic
-    for ongoing observability and monitoring.
+  - type: OpenAPI
+    url: openapi/coval-ai-conversations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.coval.dev/concepts/test-sets/overview
+  - type: APIReference
+    url: https://docs.coval.dev/api-reference/introduction
+  - type: PostmanCollection
+    url: collections/coval-ai.postman_collection.json
+  - type: OpenCollection
+    url: collections/coval-ai.opencollection.json
+  - type: Documentation
+    url: https://docs.coval.dev/getting-started/welcome
+  - type: Documentation
+    url: https://docs.coval.dev/guides/observability
+- aid: coval-ai:coval-ai-metrics-api
+  name: Coval Metrics API
+  description: Define scoring criteria, thresholds, and baselines.
+  humanURL: https://docs.coval.dev/api-reference/introduction
+  baseURL: https://api.coval.dev/v1
+  tags:
+  - Metrics
+  properties:
+  - type: OpenAPI
+    url: openapi/coval-ai-metrics-api-openapi.yml
+  - type: Documentation
+    url: https://docs.coval.dev/concepts/test-sets/overview
+  - type: APIReference
+    url: https://docs.coval.dev/api-reference/introduction
+  - type: PostmanCollection
+    url: collections/coval-ai.postman_collection.json
+  - type: OpenCollection
+    url: collections/coval-ai.opencollection.json
+  - type: Documentation
+    url: https://docs.coval.dev/getting-started/welcome
+  - type: Documentation
+    url: https://docs.coval.dev/guides/observability
+- aid: coval-ai:coval-ai-mutations-api
+  name: Coval Mutations API
+  description: Manage agent configuration variants (mutations).
+  humanURL: https://docs.coval.dev/api-reference/introduction
+  baseURL: https://api.coval.dev/v1
+  tags:
+  - Mutations
+  properties:
+  - type: OpenAPI
+    url: openapi/coval-ai-mutations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.coval.dev/concepts/test-sets/overview
+  - type: APIReference
+    url: https://docs.coval.dev/api-reference/introduction
+  - type: PostmanCollection
+    url: collections/coval-ai.postman_collection.json
+  - type: OpenCollection
+    url: collections/coval-ai.opencollection.json
+  - type: Documentation
+    url: https://docs.coval.dev/getting-started/welcome
+  - type: Documentation
+    url: https://docs.coval.dev/guides/observability
+- aid: coval-ai:coval-ai-personas-api
+  name: Coval Personas API
+  description: Configure simulated callers, voices, and scenario behavior.
+  humanURL: https://docs.coval.dev/api-reference/introduction
+  baseURL: https://api.coval.dev/v1
+  tags:
+  - Personas
+  properties:
+  - type: OpenAPI
+    url: openapi/coval-ai-personas-api-openapi.yml
+  - type: Documentation
+    url: https://docs.coval.dev/concepts/test-sets/overview
+  - type: APIReference
+    url: https://docs.coval.dev/api-reference/introduction
+  - type: PostmanCollection
+    url: collections/coval-ai.postman_collection.json
+  - type: OpenCollection
+    url: collections/coval-ai.opencollection.json
+  - type: Documentation
+    url: https://docs.coval.dev/getting-started/welcome
+  - type: Documentation
+    url: https://docs.coval.dev/guides/observability
+- aid: coval-ai:coval-ai-reports-api
+  name: Coval Reports API
+  description: Create and manage evaluation reports.
+  humanURL: https://docs.coval.dev/api-reference/introduction
+  baseURL: https://api.coval.dev/v1
+  tags:
+  - Reports
+  properties:
+  - type: OpenAPI
+    url: openapi/coval-ai-reports-api-openapi.yml
+  - type: Documentation
+    url: https://docs.coval.dev/concepts/test-sets/overview
+  - type: APIReference
+    url: https://docs.coval.dev/api-reference/introduction
+  - type: PostmanCollection
+    url: collections/coval-ai.postman_collection.json
+  - type: OpenCollection
+    url: collections/coval-ai.opencollection.json
+  - type: Documentation
+    url: https://docs.coval.dev/getting-started/welcome
+  - type: Documentation
+    url: https://docs.coval.dev/guides/observability
+- aid: coval-ai:coval-ai-run-templates-api
+  name: Coval Run Templates API
+  description: Save reusable run configurations.
+  humanURL: https://docs.coval.dev/api-reference/introduction
+  baseURL: https://api.coval.dev/v1
+  tags:
+  - Run Templates
+  properties:
+  - type: OpenAPI
+    url: openapi/coval-ai-run-templates-api-openapi.yml
+  - type: Documentation
+    url: https://docs.coval.dev/concepts/test-sets/overview
+  - type: APIReference
+    url: https://docs.coval.dev/api-reference/introduction
+  - type: PostmanCollection
+    url: collections/coval-ai.postman_collection.json
+  - type: OpenCollection
+    url: collections/coval-ai.opencollection.json
+  - type: Documentation
+    url: https://docs.coval.dev/getting-started/welcome
+  - type: Documentation
+    url: https://docs.coval.dev/guides/observability
+- aid: coval-ai:coval-ai-runs-api
+  name: Coval Runs API
+  description: Launch and manage simulation runs.
+  humanURL: https://docs.coval.dev/api-reference/introduction
+  baseURL: https://api.coval.dev/v1
+  tags:
+  - Runs
+  properties:
+  - type: OpenAPI
+    url: openapi/coval-ai-runs-api-openapi.yml
+  - type: Documentation
+    url: https://docs.coval.dev/concepts/test-sets/overview
+  - type: APIReference
+    url: https://docs.coval.dev/api-reference/introduction
+  - type: PostmanCollection
+    url: collections/coval-ai.postman_collection.json
+  - type: OpenCollection
+    url: collections/coval-ai.opencollection.json
+  - type: Documentation
+    url: https://docs.coval.dev/getting-started/welcome
+  - type: Documentation
+    url: https://docs.coval.dev/guides/observability
+- aid: coval-ai:coval-ai-scheduled-runs-api
+  name: Coval Scheduled Runs API
+  description: Schedule recurring simulation runs.
+  humanURL: https://docs.coval.dev/api-reference/introduction
+  baseURL: https://api.coval.dev/v1
+  tags:
+  - Scheduled Runs
+  properties:
+  - type: OpenAPI
+    url: openapi/coval-ai-scheduled-runs-api-openapi.yml
+  - type: Documentation
+    url: https://docs.coval.dev/concepts/test-sets/overview
+  - type: APIReference
+    url: https://docs.coval.dev/api-reference/introduction
+  - type: PostmanCollection
+    url: collections/coval-ai.postman_collection.json
+  - type: OpenCollection
+    url: collections/coval-ai.opencollection.json
+  - type: Documentation
+    url: https://docs.coval.dev/getting-started/welcome
+  - type: Documentation
+    url: https://docs.coval.dev/guides/observability
+- aid: coval-ai:coval-ai-simulations-api
+  name: Coval Simulations API
+  description: Inspect individual simulation results.
+  humanURL: https://docs.coval.dev/api-reference/introduction
+  baseURL: https://api.coval.dev/v1
+  tags:
+  - Simulations
+  properties:
+  - type: OpenAPI
+    url: openapi/coval-ai-simulations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.coval.dev/concepts/test-sets/overview
+  - type: APIReference
+    url: https://docs.coval.dev/api-reference/introduction
+  - type: PostmanCollection
+    url: collections/coval-ai.postman_collection.json
+  - type: OpenCollection
+    url: collections/coval-ai.opencollection.json
+  - type: Documentation
+    url: https://docs.coval.dev/getting-started/welcome
+  - type: Documentation
+    url: https://docs.coval.dev/guides/observability
+- aid: coval-ai:coval-ai-test-cases-api
+  name: Coval Test Cases API
+  description: Manage individual evaluation inputs within a test set.
+  humanURL: https://docs.coval.dev/api-reference/introduction
+  baseURL: https://api.coval.dev/v1
+  tags:
+  - Test Cases
+  properties:
+  - type: OpenAPI
+    url: openapi/coval-ai-test-cases-api-openapi.yml
+  - type: Documentation
+    url: https://docs.coval.dev/concepts/test-sets/overview
+  - type: APIReference
+    url: https://docs.coval.dev/api-reference/introduction
+  - type: PostmanCollection
+    url: collections/coval-ai.postman_collection.json
+  - type: OpenCollection
+    url: collections/coval-ai.opencollection.json
+  - type: Documentation
+    url: https://docs.coval.dev/getting-started/welcome
+  - type: Documentation
+    url: https://docs.coval.dev/guides/observability
+- aid: coval-ai:coval-ai-test-sets-api
+  name: Coval Test Sets API
+  description: Manage collections of test cases (datasets).
+  humanURL: https://docs.coval.dev/api-reference/introduction
+  baseURL: https://api.coval.dev/v1
+  tags:
+  - Test Sets
+  properties:
+  - type: OpenAPI
+    url: openapi/coval-ai-test-sets-api-openapi.yml
+  - type: Documentation
+    url: https://docs.coval.dev/concepts/test-sets/overview
+  - type: APIReference
+    url: https://docs.coval.dev/api-reference/introduction
+  - type: PostmanCollection
+    url: collections/coval-ai.postman_collection.json
+  - type: OpenCollection
+    url: collections/coval-ai.opencollection.json
+  - type: Documentation
+    url: https://docs.coval.dev/getting-started/welcome
+  - type: Documentation
+    url: https://docs.coval.dev/guides/observability
 common:
 - type: AgenticAccess
   url: agentic-access/coval-ai-agentic-access.yml
