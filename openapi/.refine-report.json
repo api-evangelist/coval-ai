@@ -1,0 +1,36 @@
+{
+  "provider": "coval-ai",
+  "sources": [
+    "coval-ai-agents-api-openapi.yml",
+    "coval-ai-conversations-api-openapi.yml",
+    "coval-ai-metrics-api-openapi.yml",
+    "coval-ai-mutations-api-openapi.yml",
+    "coval-ai-personas-api-openapi.yml",
+    "coval-ai-reports-api-openapi.yml",
+    "coval-ai-run-templates-api-openapi.yml",
+    "coval-ai-runs-api-openapi.yml",
+    "coval-ai-scheduled-runs-api-openapi.yml",
+    "coval-ai-simulations-api-openapi.yml",
+    "coval-ai-test-cases-api-openapi.yml",
+    "coval-ai-test-sets-api-openapi.yml"
+  ],
+  "outputs": [
+    "coval-ai-agents-api-openapi.yml",
+    "coval-ai-conversations-api-openapi.yml",
+    "coval-ai-metrics-api-openapi.yml",
+    "coval-ai-mutations-api-openapi.yml",
+    "coval-ai-personas-api-openapi.yml",
+    "coval-ai-reports-api-openapi.yml",
+    "coval-ai-run-templates-api-openapi.yml",
+    "coval-ai-runs-api-openapi.yml",
+    "coval-ai-scheduled-runs-api-openapi.yml",
+    "coval-ai-simulations-api-openapi.yml",
+    "coval-ai-test-cases-api-openapi.yml",
+    "coval-ai-test-sets-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
