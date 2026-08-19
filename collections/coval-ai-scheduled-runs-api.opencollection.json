@@ -1,0 +1,110 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Coval Agents Scheduled Runs API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Scheduled Runs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List scheduled runs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/scheduled-runs"
+          },
+          "docs": "List scheduled runs"
+        },
+        {
+          "info": {
+            "name": "Create scheduled run",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.coval.dev/v1/scheduled-runs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create scheduled run"
+        },
+        {
+          "info": {
+            "name": "Get scheduled run",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/scheduled-runs/:scheduled_run_id",
+            "params": [
+              {
+                "name": "scheduled_run_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get scheduled run"
+        },
+        {
+          "info": {
+            "name": "Update scheduled run",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.coval.dev/v1/scheduled-runs/:scheduled_run_id",
+            "params": [
+              {
+                "name": "scheduled_run_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update scheduled run"
+        },
+        {
+          "info": {
+            "name": "Delete scheduled run",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.coval.dev/v1/scheduled-runs/:scheduled_run_id",
+            "params": [
+              {
+                "name": "scheduled_run_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete scheduled run"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

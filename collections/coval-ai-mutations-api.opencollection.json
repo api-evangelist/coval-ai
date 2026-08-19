@@ -1,0 +1,139 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Coval Agents Mutations API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Mutations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List mutations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/agents/:agent_id/mutations",
+            "params": [
+              {
+                "name": "agent_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List mutations"
+        },
+        {
+          "info": {
+            "name": "Create mutation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.coval.dev/v1/agents/:agent_id/mutations",
+            "params": [
+              {
+                "name": "agent_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create mutation"
+        },
+        {
+          "info": {
+            "name": "Get mutation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/agents/:agent_id/mutations/:mutation_id",
+            "params": [
+              {
+                "name": "agent_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "mutation_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get mutation"
+        },
+        {
+          "info": {
+            "name": "Update mutation",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.coval.dev/v1/agents/:agent_id/mutations/:mutation_id",
+            "params": [
+              {
+                "name": "agent_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "mutation_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update mutation"
+        },
+        {
+          "info": {
+            "name": "Delete mutation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.coval.dev/v1/agents/:agent_id/mutations/:mutation_id",
+            "params": [
+              {
+                "name": "agent_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "mutation_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete mutation"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

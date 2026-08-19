@@ -1,0 +1,204 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Coval Agents Conversations API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Conversations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Upload audio",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.coval.dev/v1/audio:upload",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Upload an audio file for use with a submitted conversation."
+        },
+        {
+          "info": {
+            "name": "Submit conversation for evaluation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.coval.dev/v1/conversations:submit",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit a production conversation (transcript and/or audio) to be evaluated against metrics for observability and monitoring."
+        },
+        {
+          "info": {
+            "name": "List conversations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/conversations",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Pagination cursor."
+              }
+            ]
+          },
+          "docs": "List conversations"
+        },
+        {
+          "info": {
+            "name": "Get conversation details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/conversations/:conversation_id",
+            "params": [
+              {
+                "name": "conversation_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get conversation details"
+        },
+        {
+          "info": {
+            "name": "Attach audio to a conversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.coval.dev/v1/conversations/:conversation_id",
+            "params": [
+              {
+                "name": "conversation_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Attach audio to a conversation"
+        },
+        {
+          "info": {
+            "name": "Delete or cancel conversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.coval.dev/v1/conversations/:conversation_id",
+            "params": [
+              {
+                "name": "conversation_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete or cancel conversation"
+        },
+        {
+          "info": {
+            "name": "Get conversation audio",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/conversations/:conversation_id/audio",
+            "params": [
+              {
+                "name": "conversation_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get conversation audio"
+        },
+        {
+          "info": {
+            "name": "List conversation metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/conversations/:conversation_id/metrics",
+            "params": [
+              {
+                "name": "conversation_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List conversation metrics"
+        },
+        {
+          "info": {
+            "name": "Get conversation metric output(s)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/conversations/:conversation_id/metrics/:metric_output_id",
+            "params": [
+              {
+                "name": "conversation_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "metric_output_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get conversation metric output(s)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

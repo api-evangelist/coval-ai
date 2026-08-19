@@ -1,0 +1,110 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Coval Agents Reports API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Reports",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List reports",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/reports"
+          },
+          "docs": "List reports"
+        },
+        {
+          "info": {
+            "name": "Create report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.coval.dev/v1/reports",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create report"
+        },
+        {
+          "info": {
+            "name": "Get report",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/reports/:report_id",
+            "params": [
+              {
+                "name": "report_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get report"
+        },
+        {
+          "info": {
+            "name": "Update report",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.coval.dev/v1/reports/:report_id",
+            "params": [
+              {
+                "name": "report_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update report"
+        },
+        {
+          "info": {
+            "name": "Delete report",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.coval.dev/v1/reports/:report_id",
+            "params": [
+              {
+                "name": "report_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete report"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,110 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Coval Agents Run Templates API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Run Templates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List run templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/run-templates"
+          },
+          "docs": "List run templates"
+        },
+        {
+          "info": {
+            "name": "Create run template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.coval.dev/v1/run-templates",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create run template"
+        },
+        {
+          "info": {
+            "name": "Get run template",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/run-templates/:run_template_id",
+            "params": [
+              {
+                "name": "run_template_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get run template"
+        },
+        {
+          "info": {
+            "name": "Update run template",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.coval.dev/v1/run-templates/:run_template_id",
+            "params": [
+              {
+                "name": "run_template_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update run template"
+        },
+        {
+          "info": {
+            "name": "Delete run template",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.coval.dev/v1/run-templates/:run_template_id",
+            "params": [
+              {
+                "name": "run_template_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete run template"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

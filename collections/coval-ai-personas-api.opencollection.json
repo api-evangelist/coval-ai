@@ -1,0 +1,146 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Coval Agents Personas API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Personas",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List personas",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/personas",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Pagination cursor."
+              }
+            ]
+          },
+          "docs": "List personas"
+        },
+        {
+          "info": {
+            "name": "Create persona",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.coval.dev/v1/personas",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create persona"
+        },
+        {
+          "info": {
+            "name": "List phone number mappings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/personas/phone-numbers"
+          },
+          "docs": "List phone number mappings"
+        },
+        {
+          "info": {
+            "name": "List available voices",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/personas/voices"
+          },
+          "docs": "List available voices"
+        },
+        {
+          "info": {
+            "name": "Get persona",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/personas/:persona_id",
+            "params": [
+              {
+                "name": "persona_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get persona"
+        },
+        {
+          "info": {
+            "name": "Update persona",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.coval.dev/v1/personas/:persona_id",
+            "params": [
+              {
+                "name": "persona_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update persona"
+        },
+        {
+          "info": {
+            "name": "Delete persona",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.coval.dev/v1/personas/:persona_id",
+            "params": [
+              {
+                "name": "persona_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete persona"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

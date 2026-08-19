@@ -1,0 +1,191 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Coval Agents Simulations API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Simulations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List simulations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/simulations",
+            "params": [
+              {
+                "name": "run_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Pagination cursor."
+              }
+            ]
+          },
+          "docs": "List simulations"
+        },
+        {
+          "info": {
+            "name": "Get simulation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/simulations/:simulation_id",
+            "params": [
+              {
+                "name": "simulation_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get simulation"
+        },
+        {
+          "info": {
+            "name": "Update simulation",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.coval.dev/v1/simulations/:simulation_id",
+            "params": [
+              {
+                "name": "simulation_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update simulation"
+        },
+        {
+          "info": {
+            "name": "Delete or cancel simulation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.coval.dev/v1/simulations/:simulation_id",
+            "params": [
+              {
+                "name": "simulation_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete or cancel simulation"
+        },
+        {
+          "info": {
+            "name": "Rerun a simulation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.coval.dev/v1/simulations/:simulation_id/resimulate",
+            "params": [
+              {
+                "name": "simulation_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Rerun a simulation"
+        },
+        {
+          "info": {
+            "name": "Get audio file URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/simulations/:simulation_id/audio",
+            "params": [
+              {
+                "name": "simulation_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get audio file URL"
+        },
+        {
+          "info": {
+            "name": "List metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/simulations/:simulation_id/metrics",
+            "params": [
+              {
+                "name": "simulation_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List metrics"
+        },
+        {
+          "info": {
+            "name": "Get simulation metric output(s)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/simulations/:simulation_id/metrics/:metric_output_id",
+            "params": [
+              {
+                "name": "simulation_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "metric_output_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get simulation metric output(s)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

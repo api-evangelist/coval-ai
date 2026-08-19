@@ -1,0 +1,505 @@
+{
+  "item": [
+    {
+      "id": "5e75addd-a449-4737-8599-de2c6afc0f2f",
+      "name": "Test Cases",
+      "description": {
+        "content": "Manage individual evaluation inputs within a test set.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5f1304cc-710d-4f87-9802-c11358600814",
+          "name": "List test cases",
+          "request": {
+            "name": "List test cases",
+            "description": {},
+            "url": {
+              "path": [
+                "test-cases"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "test_set_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Maximum number of items to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Pagination cursor."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dd34df95-7f02-4d74-8638-a9220ff8aa1e",
+              "name": "A list of test cases.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "test-cases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "test_set_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6d0c50ec-e7db-428e-9f30-2a93df092c53",
+          "name": "Create test case",
+          "request": {
+            "name": "Create test case",
+            "description": {},
+            "url": {
+              "path": [
+                "test-cases"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"input_str\": \"<string>\",\n  \"test_set_id\": \"<string>\",\n  \"expected_behaviors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"expected_output_str\": \"<string>\",\n  \"expected_output_json\": \"<object>\",\n  \"description\": \"<string>\",\n  \"input_type\": \"<string>\",\n  \"simulation_metadata_input\": \"<object>\",\n  \"metric_input\": \"<object>\",\n  \"user_notes\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f7471ae9-9f58-4951-b20e-bb2505e4dcb2",
+              "name": "Test case created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "test-cases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"input_str\": \"<string>\",\n  \"test_set_id\": \"<string>\",\n  \"expected_behaviors\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"expected_output_str\": \"<string>\",\n  \"expected_output_json\": \"<object>\",\n  \"description\": \"<string>\",\n  \"input_type\": \"<string>\",\n  \"simulation_metadata_input\": \"<object>\",\n  \"metric_input\": \"<object>\",\n  \"user_notes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb15e0c1-c88c-474c-bd3b-4b36a7714c2d",
+          "name": "Get test case",
+          "request": {
+            "name": "Get test case",
+            "description": {},
+            "url": {
+              "path": [
+                "test-cases",
+                ":test_case_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "test_case_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "89cb48c4-2f16-4e65-bd02-c97d6f31fdcc",
+              "name": "The requested test case.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "test-cases",
+                    ":test_case_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "test_case_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f1e0f9da-e649-45f3-805c-b8257f11a949",
+          "name": "Update test case",
+          "request": {
+            "name": "Update test case",
+            "description": {},
+            "url": {
+              "path": [
+                "test-cases",
+                ":test_case_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "test_case_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "35ed4df5-dfa4-415b-b4a7-b7e131158aae",
+              "name": "Updated test case.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "test-cases",
+                    ":test_case_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "test_case_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "458bc70a-4622-4ec4-bad5-9dbca37b4320",
+          "name": "Delete test case",
+          "request": {
+            "name": "Delete test case",
+            "description": {},
+            "url": {
+              "path": [
+                "test-cases",
+                ":test_case_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "test_case_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "967e851c-e9b3-4a3f-8f14-3c101fff86c1",
+              "name": "Test case deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "test-cases",
+                    ":test_case_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "test_case_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.coval.dev/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "db90c458-2765-4536-b098-76bc23a6a39e",
+    "name": "Coval Agents Test Cases API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Simulation and evaluation API for AI voice and chat agents. Manage agents, test sets and test cases, personas, metrics and their thresholds and baselines, simulation runs, run templates, scheduled runs, individual simulations, reports, and production conversations. All paths are relative to the production base URL https://api.coval.dev/v1 and authenticated with the X-API-Key header. Endpoints in this document are drawn from Coval's live per-resource OpenAPI specifications served from https://api.coval.dev/v1/openapi.\n\nContact Support:\n Name: Coval API Support\n Email: support@coval.dev",
+      "type": "text/plain"
+    }
+  }
+}

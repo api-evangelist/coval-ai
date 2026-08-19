@@ -1,0 +1,508 @@
+{
+  "item": [
+    {
+      "id": "330d5927-622b-42a1-a1ac-3102dc1482fc",
+      "name": "Runs",
+      "description": {
+        "content": "Launch and manage simulation runs.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0f1536a6-85c9-4274-aba9-d0641c493b9f",
+          "name": "List runs",
+          "request": {
+            "name": "List runs",
+            "description": {},
+            "url": {
+              "path": [
+                "runs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Maximum number of items to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "cursor",
+                  "value": "<string>",
+                  "description": "Pagination cursor."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e703c239-5c61-4f4f-aabc-d4e79e488826",
+              "name": "A list of runs.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "runs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "cursor",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "25b5058e-4828-420e-8775-a8edb1067f85",
+          "name": "Launch run",
+          "request": {
+            "name": "Launch run",
+            "description": {
+              "content": "Launch a simulation run by pairing an agent, a persona, and a test set, optionally selecting specific metrics and mutations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "runs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"agent_id\": \"<string>\",\n  \"persona_id\": \"<string>\",\n  \"test_set_id\": \"<string>\",\n  \"metric_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"mutation_id\": \"<string>\",\n  \"mutation_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"persona_metrics\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"options\": \"<object>\",\n  \"metadata\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c0eac8b6-d0b0-481f-8f56-071ff3cca802",
+              "name": "Run launched.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "runs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"agent_id\": \"<string>\",\n  \"persona_id\": \"<string>\",\n  \"test_set_id\": \"<string>\",\n  \"metric_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"mutation_id\": \"<string>\",\n  \"mutation_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"persona_metrics\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"options\": \"<object>\",\n  \"metadata\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5703b340-1cc3-4a76-95f5-82fefa6c3f46",
+          "name": "Get run",
+          "request": {
+            "name": "Get run",
+            "description": {},
+            "url": {
+              "path": [
+                "runs",
+                ":run_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "run_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f441b17c-bfc4-421e-8625-7d4be04ffffd",
+              "name": "The requested run.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "runs",
+                    ":run_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "15a24888-08b0-4889-856f-b1c7e83cea3c",
+          "name": "Update run",
+          "request": {
+            "name": "Update run",
+            "description": {},
+            "url": {
+              "path": [
+                "runs",
+                ":run_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "run_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2de7fa64-d3f6-47e8-80d4-f443656a12a6",
+              "name": "Updated run.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "runs",
+                    ":run_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8e5258c-3a7e-4d93-8a00-a23b1e2f0880",
+          "name": "Delete run",
+          "request": {
+            "name": "Delete run",
+            "description": {},
+            "url": {
+              "path": [
+                "runs",
+                ":run_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "run_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ee9e8b19-85b8-4143-998c-076b0de2ca85",
+              "name": "Run deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "runs",
+                    ":run_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "run_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.coval.dev/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a7a5b652-c134-45b8-b547-2291b9e308f4",
+    "name": "Coval Agents Runs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Simulation and evaluation API for AI voice and chat agents. Manage agents, test sets and test cases, personas, metrics and their thresholds and baselines, simulation runs, run templates, scheduled runs, individual simulations, reports, and production conversations. All paths are relative to the production base URL https://api.coval.dev/v1 and authenticated with the X-API-Key header. Endpoints in this document are drawn from Coval's live per-resource OpenAPI specifications served from https://api.coval.dev/v1/openapi.\n\nContact Support:\n Name: Coval API Support\n Email: support@coval.dev",
+      "type": "text/plain"
+    }
+  }
+}

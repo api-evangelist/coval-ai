@@ -1,0 +1,129 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Coval Agents Test Cases API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Test Cases",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List test cases",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/test-cases",
+            "params": [
+              {
+                "name": "test_set_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Pagination cursor."
+              }
+            ]
+          },
+          "docs": "List test cases"
+        },
+        {
+          "info": {
+            "name": "Create test case",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.coval.dev/v1/test-cases",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create test case"
+        },
+        {
+          "info": {
+            "name": "Get test case",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/test-cases/:test_case_id",
+            "params": [
+              {
+                "name": "test_case_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get test case"
+        },
+        {
+          "info": {
+            "name": "Update test case",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.coval.dev/v1/test-cases/:test_case_id",
+            "params": [
+              {
+                "name": "test_case_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update test case"
+        },
+        {
+          "info": {
+            "name": "Delete test case",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.coval.dev/v1/test-cases/:test_case_id",
+            "params": [
+              {
+                "name": "test_case_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete test case"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

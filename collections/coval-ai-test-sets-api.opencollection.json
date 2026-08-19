@@ -1,0 +1,124 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Coval Agents Test Sets API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Test Sets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List test sets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/test-sets",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return."
+              },
+              {
+                "name": "cursor",
+                "value": "",
+                "type": "query",
+                "description": "Pagination cursor."
+              }
+            ]
+          },
+          "docs": "List test sets"
+        },
+        {
+          "info": {
+            "name": "Create test set",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.coval.dev/v1/test-sets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create test set"
+        },
+        {
+          "info": {
+            "name": "Get test set",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.coval.dev/v1/test-sets/:test_set_id",
+            "params": [
+              {
+                "name": "test_set_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get test set"
+        },
+        {
+          "info": {
+            "name": "Update test set",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.coval.dev/v1/test-sets/:test_set_id",
+            "params": [
+              {
+                "name": "test_set_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update test set"
+        },
+        {
+          "info": {
+            "name": "Delete test set",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.coval.dev/v1/test-sets/:test_set_id",
+            "params": [
+              {
+                "name": "test_set_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete test set"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
