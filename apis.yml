@@ -7,6 +7,18 @@ description: Coval is a simulation and evaluation platform for AI voice and chat
   realistic scenarios, personas, accents, and background noise, then scores agent
   behavior with built-in and custom metrics. The REST API manages agents, test sets
   and test cases, personas, metrics, simulation runs, and production conversations.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: enterprise
   onboarding: self-serve
