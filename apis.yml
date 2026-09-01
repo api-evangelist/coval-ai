@@ -299,7 +299,7 @@ apis:
   humanURL: https://docs.coval.dev/api-reference/introduction
   baseURL: https://api.coval.dev/v1
   tags:
-  - Test Sets
+  - Testsets
   tags_raw:
   - Test Sets
   properties:
