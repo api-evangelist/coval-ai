@@ -256,6 +256,8 @@ apis:
   humanURL: https://docs.coval.dev/api-reference/introduction
   baseURL: https://api.coval.dev/v1
   tags:
+  - Simulation
+  tags_raw:
   - Simulations
   properties:
   - type: OpenAPI
