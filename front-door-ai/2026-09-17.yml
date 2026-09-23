@@ -1,0 +1,29 @@
+# Front Door AI Index — coval-ai — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: coval-ai
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.coval.dev
+  final_host: www.coval.ai
+  ownership: inherited
+  owner: coval-ai
+  shares_host_with: null
+  inherited_from: coval.ai
+  verdict: scored
+  score: null
+  host_score: 27
+  density: null
+  words: 1583
+  tiers:
+    agentic: 5
+    core: 22
+    model: 0
+  ambiguous: 51
+  top_terms:
+    agent: 51
+    AI: 22
+    prompts: 3
+    AI agent: 1
+    chatbot: 1
