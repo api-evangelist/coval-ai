@@ -81,16 +81,16 @@ paths:
           description: Test set deleted.
 components:
   parameters:
-    Cursor:
-      name: cursor
-      in: query
-      description: Pagination cursor.
-      schema:
-        type: string
     TestSetId:
       name: test_set_id
       in: path
       required: true
+      schema:
+        type: string
+    Cursor:
+      name: cursor
+      in: query
+      description: Pagination cursor.
       schema:
         type: string
     Limit:

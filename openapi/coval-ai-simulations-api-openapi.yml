@@ -120,12 +120,6 @@ paths:
           description: A single simulation metric output.
 components:
   parameters:
-    SimulationId:
-      name: simulation_id
-      in: path
-      required: true
-      schema:
-        type: string
     Cursor:
       name: cursor
       in: query
@@ -138,6 +132,12 @@ components:
       description: Maximum number of items to return.
       schema:
         type: integer
+    SimulationId:
+      name: simulation_id
+      in: path
+      required: true
+      schema:
+        type: string
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

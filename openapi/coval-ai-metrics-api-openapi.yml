@@ -220,16 +220,16 @@ paths:
           description: A list of metric judge models.
 components:
   parameters:
-    Cursor:
-      name: cursor
-      in: query
-      description: Pagination cursor.
-      schema:
-        type: string
     MetricId:
       name: metric_id
       in: path
       required: true
+      schema:
+        type: string
+    Cursor:
+      name: cursor
+      in: query
+      description: Pagination cursor.
       schema:
         type: string
     Limit:

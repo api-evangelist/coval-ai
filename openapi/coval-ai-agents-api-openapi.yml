@@ -81,6 +81,25 @@ paths:
         '204':
           description: Agent deleted.
 components:
+  parameters:
+    AgentId:
+      name: agent_id
+      in: path
+      required: true
+      schema:
+        type: string
+    Cursor:
+      name: cursor
+      in: query
+      description: Pagination cursor.
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Maximum number of items to return.
+      schema:
+        type: integer
   schemas:
     AgentCreate:
       type: object
@@ -115,25 +134,6 @@ components:
           type: array
           items:
             type: string
-  parameters:
-    AgentId:
-      name: agent_id
-      in: path
-      required: true
-      schema:
-        type: string
-    Cursor:
-      name: cursor
-      in: query
-      description: Pagination cursor.
-      schema:
-        type: string
-    Limit:
-      name: limit
-      in: query
-      description: Maximum number of items to return.
-      schema:
-        type: integer
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
