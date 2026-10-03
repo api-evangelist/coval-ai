@@ -82,16 +82,16 @@ paths:
           description: Agent deleted.
 components:
   parameters:
-    AgentId:
-      name: agent_id
-      in: path
-      required: true
-      schema:
-        type: string
     Cursor:
       name: cursor
       in: query
       description: Pagination cursor.
+      schema:
+        type: string
+    AgentId:
+      name: agent_id
+      in: path
+      required: true
       schema:
         type: string
     Limit:

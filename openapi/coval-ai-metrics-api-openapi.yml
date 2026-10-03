@@ -220,12 +220,6 @@ paths:
           description: A list of metric judge models.
 components:
   parameters:
-    MetricId:
-      name: metric_id
-      in: path
-      required: true
-      schema:
-        type: string
     Cursor:
       name: cursor
       in: query
@@ -238,6 +232,12 @@ components:
       description: Maximum number of items to return.
       schema:
         type: integer
+    MetricId:
+      name: metric_id
+      in: path
+      required: true
+      schema:
+        type: string
   schemas:
     MetricCreate:
       type: object

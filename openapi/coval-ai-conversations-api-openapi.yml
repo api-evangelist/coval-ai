@@ -145,6 +145,25 @@ paths:
         '200':
           description: A single conversation metric output.
 components:
+  parameters:
+    Cursor:
+      name: cursor
+      in: query
+      description: Pagination cursor.
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Maximum number of items to return.
+      schema:
+        type: integer
+    ConversationId:
+      name: conversation_id
+      in: path
+      required: true
+      schema:
+        type: string
   schemas:
     ConversationSubmit:
       type: object
@@ -170,25 +189,6 @@ components:
           format: date-time
         agent_id:
           type: string
-  parameters:
-    Cursor:
-      name: cursor
-      in: query
-      description: Pagination cursor.
-      schema:
-        type: string
-    Limit:
-      name: limit
-      in: query
-      description: Maximum number of items to return.
-      schema:
-        type: integer
-    ConversationId:
-      name: conversation_id
-      in: path
-      required: true
-      schema:
-        type: string
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

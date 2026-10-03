@@ -81,12 +81,6 @@ paths:
           description: Test set deleted.
 components:
   parameters:
-    TestSetId:
-      name: test_set_id
-      in: path
-      required: true
-      schema:
-        type: string
     Cursor:
       name: cursor
       in: query
@@ -99,6 +93,12 @@ components:
       description: Maximum number of items to return.
       schema:
         type: integer
+    TestSetId:
+      name: test_set_id
+      in: path
+      required: true
+      schema:
+        type: string
   schemas:
     TestSetCreate:
       type: object

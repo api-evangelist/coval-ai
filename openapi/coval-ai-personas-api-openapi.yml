@@ -98,6 +98,25 @@ paths:
         '204':
           description: Persona deleted.
 components:
+  parameters:
+    Cursor:
+      name: cursor
+      in: query
+      description: Pagination cursor.
+      schema:
+        type: string
+    PersonaId:
+      name: persona_id
+      in: path
+      required: true
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      description: Maximum number of items to return.
+      schema:
+        type: integer
   schemas:
     PersonaCreate:
       type: object
@@ -158,25 +177,6 @@ components:
           type: array
           items:
             type: string
-  parameters:
-    PersonaId:
-      name: persona_id
-      in: path
-      required: true
-      schema:
-        type: string
-    Cursor:
-      name: cursor
-      in: query
-      description: Pagination cursor.
-      schema:
-        type: string
-    Limit:
-      name: limit
-      in: query
-      description: Maximum number of items to return.
-      schema:
-        type: integer
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

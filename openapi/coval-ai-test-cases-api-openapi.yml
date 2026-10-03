@@ -85,16 +85,16 @@ paths:
           description: Test case deleted.
 components:
   parameters:
-    TestCaseId:
-      name: test_case_id
-      in: path
-      required: true
-      schema:
-        type: string
     Cursor:
       name: cursor
       in: query
       description: Pagination cursor.
+      schema:
+        type: string
+    TestCaseId:
+      name: test_case_id
+      in: path
+      required: true
       schema:
         type: string
     Limit:

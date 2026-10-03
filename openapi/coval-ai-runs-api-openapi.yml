@@ -86,16 +86,16 @@ paths:
           description: Run deleted.
 components:
   parameters:
-    RunId:
-      name: run_id
-      in: path
-      required: true
-      schema:
-        type: string
     Cursor:
       name: cursor
       in: query
       description: Pagination cursor.
+      schema:
+        type: string
+    RunId:
+      name: run_id
+      in: path
+      required: true
       schema:
         type: string
     Limit:
