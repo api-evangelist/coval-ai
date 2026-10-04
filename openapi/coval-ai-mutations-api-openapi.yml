@@ -81,14 +81,14 @@ paths:
           description: Mutation deleted.
 components:
   parameters:
-    AgentId:
-      name: agent_id
+    MutationId:
+      name: mutation_id
       in: path
       required: true
       schema:
         type: string
-    MutationId:
-      name: mutation_id
+    AgentId:
+      name: agent_id
       in: path
       required: true
       schema:
