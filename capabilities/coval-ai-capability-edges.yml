@@ -1,0 +1,42 @@
+slug: coval-ai
+provider: Coval
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: Test Cases
+  spec_file: coval-ai-test-cases-api-openapi.yml
+  capability_id: BC-4200.50
+  capability_id_l1: BC-4200
+  capability_name: Software Quality Engineering
+  confidence: 0.85
+  evidence: 'POST /test-cases  createTestCase  Create test case; schemas: TestCaseCreate'
+  reason: Explicit test case lifecycle management for AI agent testing — unambiguously test strategy/test
+    suite stewardship under Software Quality Engineering.
+- tag: Test Sets
+  spec_file: coval-ai-test-sets-api-openapi.yml
+  capability_id: BC-4200.50
+  capability_id_l1: BC-4200
+  capability_name: Software Quality Engineering
+  confidence: 0.85
+  evidence: 'POST /test-sets  createTestSet  Create test set; schemas: TestSetCreate'
+  reason: Management of test suites grouping test cases for agent evaluation — automated test suite stewardship.
+- tag: Simulations
+  spec_file: coval-ai-simulations-api-openapi.yml
+  capability_id: BC-4200.50
+  capability_id_l1: BC-4200
+  capability_name: Software Quality Engineering
+  confidence: 0.8
+  evidence: POST /simulations/{simulation_id}/resimulate  resimulateSimulation  Rerun a simulation; GET
+    /simulations/{simulation_id}/metrics
+  reason: 'Core surface of the platform: executing and re-running simulated conversations and retrieving
+    their scored metric outputs — automated testing and evaluation of the software agent.'
