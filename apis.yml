@@ -325,6 +325,8 @@ apis:
   - type: Documentation
     url: https://docs.coval.dev/guides/observability
 common:
+- type: Pricing
+  url: https://www.coval.ai/pricing
 - type: CapabilityMap
   url: capabilities/coval-ai-capability-edges.yml
   name: Coval Business Capability Map
