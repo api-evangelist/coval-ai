@@ -1,4 +1,4 @@
-# Coval (coval-ai)
+# Coval
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,140 +66,139 @@
 
 Coval is a simulation and evaluation platform for AI voice and chat agents. Inspired by autonomous-vehicle testing, it simulates end customers across realistic scenarios, personas, accents, and background noise, then scores agent behavior with built-in and custom metrics. The REST API manages agents, test sets and test cases, personas, metrics, simulation runs, and production conversations.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/coval-ai/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/coval-ai/refs/heads/main/apis.yml)
+**Areas:** Artificial Intelligence · Agents · Voice AI · Simulation · Evaluation · Testing
 
-## Tags
+## Coval on APIs.io
 
-- AI
-- Agents
-- Voice AI
-- Simulation
-- Evaluation
-- Testing
+Everything profiled for Coval is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/coval-ai/](https://apis.io/providers/coval-ai/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (12)
 
-- **Created:** 2026-06-21
-- **Modified:** 2026-06-21
+- [Coval Agents API](https://apis.io/apis/coval-ai/coval-ai-agents-api/) — Connect and manage AI agents under test.
+- [Coval Conversations API](https://apis.io/apis/coval-ai/coval-ai-conversations-api/) — Submit and evaluate production conversations.
+- [Coval Metrics API](https://apis.io/apis/coval-ai/coval-ai-metrics-api/) — Define scoring criteria, thresholds, and baselines.
+- [Coval Mutations API](https://apis.io/apis/coval-ai/coval-ai-mutations-api/) — Manage agent configuration variants (mutations).
+- [Coval Personas API](https://apis.io/apis/coval-ai/coval-ai-personas-api/) — Configure simulated callers, voices, and scenario behavior.
+- [Coval Reports API](https://apis.io/apis/coval-ai/coval-ai-reports-api/) — Create and manage evaluation reports.
+- [Coval Run Templates API](https://apis.io/apis/coval-ai/coval-ai-run-templates-api/) — Save reusable run configurations.
+- [Coval Runs API](https://apis.io/apis/coval-ai/coval-ai-runs-api/) — Launch and manage simulation runs.
+- [Coval Scheduled Runs API](https://apis.io/apis/coval-ai/coval-ai-scheduled-runs-api/) — Schedule recurring simulation runs.
+- [Coval Simulations API](https://apis.io/apis/coval-ai/coval-ai-simulations-api/) — Inspect individual simulation results.
+- [Coval Test Cases API](https://apis.io/apis/coval-ai/coval-ai-test-cases-api/) — Manage individual evaluation inputs within a test set.
+- [Coval Test Sets API](https://apis.io/apis/coval-ai/coval-ai-test-sets-api/) — Manage collections of test cases (datasets).
 
-## APIs
+### Published properties
 
-### Coval Datasets API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Manage test sets and the individual test cases (scenarios, transcripts, IVR, audio, and scripts) that define the inputs an agent is simulated and evaluated against.
+#### Agentic access (1)
 
-- **Human URL:** [https://docs.coval.dev/api-reference/introduction](https://docs.coval.dev/api-reference/introduction)
-- **Base URL:** `https://api.coval.dev/v1`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Coval Ai Agentic Access](https://apis.io/agentic-access/coval-ai/coval-ai-agentic-access/)
 
-- Datasets
-- Test Sets
-- Test Cases
+#### Collections (13)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://docs.coval.dev/concepts/test-sets/overview)
-- [API Reference](https://docs.coval.dev/api-reference/introduction)
-- [OpenAPI](openapi/coval-ai-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/coval-ai.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/coval-ai.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Coval API](https://apis.io/collections/coval-ai/open-coval-ai/)
+- [Coval Agents API](https://apis.io/collections/coval-ai/open-coval-ai-agents-api/)
+- [Coval Agents Conversations API](https://apis.io/collections/coval-ai/open-coval-ai-conversations-api/)
+- [Coval Agents Metrics API](https://apis.io/collections/coval-ai/open-coval-ai-metrics-api/)
+- [Coval Agents Mutations API](https://apis.io/collections/coval-ai/open-coval-ai-mutations-api/)
+- [Coval Agents Personas API](https://apis.io/collections/coval-ai/open-coval-ai-personas-api/)
+- [Coval Agents Reports API](https://apis.io/collections/coval-ai/open-coval-ai-reports-api/)
+- [Coval Agents Run Templates API](https://apis.io/collections/coval-ai/open-coval-ai-run-templates-api/)
+- [Coval Agents Runs API](https://apis.io/collections/coval-ai/open-coval-ai-runs-api/)
+- [Coval Agents Scheduled Runs API](https://apis.io/collections/coval-ai/open-coval-ai-scheduled-runs-api/)
+- [Coval Agents Simulations API](https://apis.io/collections/coval-ai/open-coval-ai-simulations-api/)
+- [Coval Agents Test Cases API](https://apis.io/collections/coval-ai/open-coval-ai-test-cases-api/)
+- [Coval Agents Test Sets API](https://apis.io/collections/coval-ai/open-coval-ai-test-sets-api/)
 
-### Coval Simulations & Runs API
+#### Security (2)
 
-Launch and manage simulation runs that pair an agent, persona, and test set, then inspect the resulting simulations including transcripts, audio, and per-metric outputs. Also covers connecting agents, run templates, and scheduled runs.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://docs.coval.dev/api-reference/introduction](https://docs.coval.dev/api-reference/introduction)
-- **Base URL:** `https://api.coval.dev/v1`
+- [Coval Ai Authentication](https://apis.io/security/coval-ai/coval-ai-authentication/)
+- [Coval Ai Domain Security](https://apis.io/security/coval-ai/coval-ai-domain-security/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- Simulations
-- Test Runs
-- Agents
+Published plans, tiers and prices.
 
-#### Properties
+- [Coval Ai Plans Pricing](https://apis.io/plans/coval-ai/coval-ai-plans-pricing/)
 
-- [Documentation](https://docs.coval.dev/getting-started/welcome)
-- [API Reference](https://docs.coval.dev/api-reference/introduction)
-- [OpenAPI](openapi/coval-ai-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/coval-ai.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/coval-ai.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-### Coval Scenarios & Personas API
+Published request limits.
 
-Configure the simulated callers that drive scenarios - persona prompts, voices, languages, background-sound environments, and conversation behavior - along with helpers to list available voices and phone-number mappings.
+- [Coval Ai Rate Limits](https://apis.io/rate-limits/coval-ai/coval-ai-rate-limits/)
 
-- **Human URL:** [https://docs.coval.dev/api-reference/introduction](https://docs.coval.dev/api-reference/introduction)
-- **Base URL:** `https://api.coval.dev/v1`
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- Scenarios
-- Personas
-- Voices
+- [Coval Ai Finops](https://apis.io/finops/coval-ai/coval-ai-finops/)
 
-#### Properties
+## Where to find this API
 
-- [Documentation](https://docs.coval.dev/getting-started/welcome)
-- [API Reference](https://docs.coval.dev/api-reference/introduction)
-- [OpenAPI](openapi/coval-ai-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/coval-ai.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/coval-ai.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-### Coval Metrics & Scorers API
-
-Define the scoring criteria used to evaluate agent behavior - custom and built-in metric types - plus their thresholds and baselines, and list the judge models available for metric evaluation.
-
-- **Human URL:** [https://docs.coval.dev/api-reference/introduction](https://docs.coval.dev/api-reference/introduction)
-- **Base URL:** `https://api.coval.dev/v1`
-
-#### Tags
-
-- Metrics
-- Scorers
-- Evaluation
-
-#### Properties
-
-- [Documentation](https://docs.coval.dev/getting-started/welcome)
-- [API Reference](https://docs.coval.dev/api-reference/introduction)
-- [OpenAPI](openapi/coval-ai-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/coval-ai.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/coval-ai.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Coval Conversations & Observability API
-
-Submit production conversations and transcripts for evaluation, attach audio, and pull per-conversation metric outputs to run evals on live traffic for ongoing observability and monitoring.
-
-- **Human URL:** [https://docs.coval.dev/guides/observability](https://docs.coval.dev/guides/observability)
-- **Base URL:** `https://api.coval.dev/v1`
-
-#### Tags
-
-- Conversations
-- Observability
-- Monitoring
-
-#### Properties
-
-- [Documentation](https://docs.coval.dev/guides/observability)
-- [API Reference](https://docs.coval.dev/api-reference/introduction)
-- [OpenAPI](openapi/coval-ai-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/coval-ai.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/coval-ai.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/coval-ai)
-- [LinkedIn](https://www.linkedin.com/company/covaldev)
 - [Website](https://www.coval.dev)
 - [Documentation](https://docs.coval.dev)
-- [Plans](plans/coval-ai-plans-pricing.yml)
-- [Rate Limits](rate-limits/coval-ai-rate-limits.yml)
-- [Fin Ops](finops/coval-ai-finops.yml)
+- [Pricing](https://www.coval.ai/pricing)
+- [Blog](https://www.coval.ai/blog)
+- [GitHub](https://github.com/coval-ai)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 31.5** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 47.5 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 25.0 |
+| Access clarity | 42.1 |
+
+**Agent readiness 19.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.9** — AI & Biometrics
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/coval-ai/](https://apis.io/providers/coval-ai/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Coval: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/coval-ai/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
